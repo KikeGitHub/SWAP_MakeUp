@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SWAP MakeUp - Artista profesional de maquillaje. Transforma tu belleza con técnicas profesionales y productos de alta calidad.">
+    <meta name="keywords" content="maquillaje profesional, makeup artist, maquillaje de novias, maquillaje social, beauty artist">
+    <meta name="author" content="SWAP MakeUp">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://swapmakeup.com/">
+    <meta property="og:title" content="SWAP MakeUp - Makeup Artist Profesional">
+    <meta property="og:description" content="Transforma tu belleza con técnicas profesionales y productos de alta calidad.">
+    <meta property="og:image" content="img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://swapmakeup.com/">
+    <meta property="twitter:title" content="SWAP MakeUp - Makeup Artist Profesional">
+    <meta property="twitter:description" content="Transforma tu belleza con técnicas profesionales y productos de alta calidad.">
+    <meta property="twitter:image" content="img/og-image.jpg">
+
+    <title>SWAP MakeUp - Makeup Artist Profesional</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="logo">SWAP<span>MakeUp</span></a>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">Inicio</a></li>
+                        <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+                        <li><a href="#gallery" class="nav-link">Galería</a></li>
+                        <li><a href="#services" class="nav-link">Servicios</a></li>
+                        <li><a href="#products" class="nav-link">Productos</a></li>
+                        <li><a href="#contact" class="nav-link">Contacto</a></li>
+                    </ul>
+                    <a href="https://wa.me/52XXXXXXXXXX?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank">
+                        Agendar Cita
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="subtitle">Profesional Makeup Artist</span>
+                    <span class="main-title">SWAP MakeUp</span>
+                </h1>
+                <p class="hero-description">Transformando tu belleza en arte con técnicas profesionales y productos de alta calidad</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/52XXXXXXXXXX?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Agendar Cita
+                    </a>
+                    <a href="#gallery" class="btn btn-secondary">
+                        Ver Portafolio
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="img/about-photo.jpg" alt="SWAP MakeUp Artist" loading="lazy">
+                    <div class="about-image-overlay"></div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-label">Conoce mi historia</span>
+                    <h2 class="section-title">Sobre Mí</h2>
+                    <p class="about-text">
+                        Soy una artista de maquillaje profesional con más de 5 años de experiencia en la industria de la belleza. 
+                        Mi pasión es realzar la belleza natural de cada persona, creando looks únicos y personalizados 
+                        que reflejen su personalidad y estilo.
+                    </p>
+                    <p class="about-text">
+                        Me especializo en maquillaje de novias, eventos sociales, sesiones fotográficas y maquillaje editorial. 
+                        Utilizo únicamente productos de alta calidad y técnicas profesionales que garantizan resultados 
+                        impecables y duraderos.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Clientes Felices</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Años Experiencia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Satisfacción</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Portafolio</span>
+                <h2 class="section-title">Galería Artística</h2>
+                <p class="section-description">Explora mi trabajo y descubre el arte del maquillaje profesional</p>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded here -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img data-src="gallery/work-1.jpg" alt="Maquillaje de novia" class="lazy-load">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img data-src="gallery/work-2.jpg" alt="Maquillaje social" class="lazy-load">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img data-src="gallery/work-3.jpg" alt="Maquillaje editorial" class="lazy-load">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img data-src="gallery/work-4.jpg" alt="Maquillaje artístico" class="lazy-load">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img data-src="gallery/work-5.jpg" alt="Maquillaje de noche" class="lazy-load">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img data-src="gallery/work-6.jpg" alt="Maquillaje natural" class="lazy-load">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Lo que ofrezco</span>
+                <h2 class="section-title">Servicios & Precios</h2>
+                <p class="section-description">Paquetes profesionales diseñados para cada ocasión especial</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-title">Maquillaje de Novia</h3>
+                    <p class="service-description">
+                        Look perfecto para el día más importante. Incluye prueba previa y maquillaje el día del evento.
+                    </p>
+                    <div class="service-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Prueba de maquillaje</li>
+                            <li><i class="fas fa-check"></i> Productos de alta gama</li>
+                            <li><i class="fas fa-check"></i> Duración garantizada</li>
+                            <li><i class="fas fa-check"></i> Pestañas postizas</li>
+                        </ul>
+                    </div>
+                    <div class="service-price">
+                        <span class="price">$2,500</span>
+                        <span class="currency">MXN</span>
+                    </div>
+                    <a href="https://wa.me/52XXXXXXXXXX?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20de%20Novia" class="btn btn-outline" target="_blank">
+                        Reservar
+                    </a>
+                </div>
+
+                <div class="service-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-badge">Más Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="service-title">Evento Social</h3>
+                    <p class="service-description">
+                        Perfecto para graduaciones, fiestas, eventos corporativos y ocasiones especiales.
+                    </p>
+                    <div class="service-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Maquillaje profesional</li>
+                            <li><i class="fas fa-check"></i> Productos premium</li>
+                            <li><i class="fas fa-check"></i> Larga duración</li>
+                            <li><i class="fas fa-check"></i> Retoque incluido</li>
+                        </ul>
+                    </div>
+                    <div class="service-price">
+                        <span class="price">$1,200</span>
+                        <span class="currency">MXN</span>
+                    </div>
+                    <a href="https://wa.me/52XXXXXXXXXX?text=Me%20interesa%20el%20servicio%20de%20Evento%20Social" class="btn btn-primary" target="_blank">
+                        Reservar
+                    </a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="service-title">Sesión Fotográfica</h3>
+                    <p class="service-description">
+                        Maquillaje editorial y artístico para sesiones de fotos, portafolios y redes sociales.
+                    </p>
+                    <div class="service-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Maquillaje HD</li>
+                            <li><i class="fas fa-check"></i> Técnicas avanzadas</li>
+                            <li><i class="fas fa-check"></i> Looks personalizados</li>
+                            <li><i class="fas fa-check"></i> Retoques durante sesión</li>
+                        </ul>
+                    </div>
+                    <div class="service-price">
+                        <span class="price">$1,500</span>
+                        <span class="currency">MXN</span>
+                    </div>
+                    <a href="https://wa.me/52XXXXXXXXXX?text=Me%20interesa%20el%20servicio%20de%20Sesión%20Fotográfica" class="btn btn-outline" target="_blank">
+                        Reservar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Kit Profesional</span>
+                <h2 class="section-title">Productos Recomendados</h2>
+                <p class="section-description">Mis productos favoritos que uso en cada sesión profesional</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img data-src="img/product-1.jpg" alt="Base de maquillaje" class="lazy-load">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Base HD Profesional</h3>
+                        <p class="product-description">Cobertura completa de larga duración con acabado natural</p>
+                        <div class="product-brand">MAC Cosmetics</div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image">
+                        <img data-src="img/product-2.jpg" alt="Paleta de sombras" class="lazy-load">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Paleta de Sombras</h3>
+                        <p class="product-description">Tonos versátiles para crear cualquier look</p>
+                        <div class="product-brand">Urban Decay</div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-image">
+                        <img data-src="img/product-3.jpg" alt="Labiales" class="lazy-load">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Labial Matte</h3>
+                        <p class="product-description">Acabado aterciopelado ultra duradero</p>
+                        <div class="product-brand">NARS</div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-image">
+                        <img data-src="img/product-4.jpg" alt="Brochas profesionales" class="lazy-load">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Set de Brochas</h3>
+                        <p class="product-description">Kit profesional de 12 brochas premium</p>
+                        <div class="product-brand">Sigma Beauty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Conectemos</span>
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-description">¿Lista para tu transformación? Contáctame y agenda tu cita</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Teléfono</h4>
+                            <p>+52 XXX XXX XXXX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>contacto@swapmakeup.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Ubicación</h4>
+                            <p>Ciudad de México, México</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://instagram.com/swapmakeup" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/swapmakeup" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://tiktok.com/@swapmakeup" target="_blank" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://wa.me/52XXXXXXXXXX" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm" data-aos="fade-left">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Tu Teléfono" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="novia">Maquillaje de Novia</option>
+                            <option value="social">Evento Social</option>
+                            <option value="foto">Sesión Fotográfica</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu evento..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">SWAP<span>MakeUp</span></h3>
+                    <p class="footer-description">
+                        Transformando tu belleza en arte con profesionalismo y pasión.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#about">Sobre Mí</a></li>
+                        <li><a href="#gallery">Galería</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +52 XXX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> contacto@swapmakeup.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> CDMX, México</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Sígueme</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/swapmakeup" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/swapmakeup" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://tiktok.com/@swapmakeup" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SWAP MakeUp. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/52XXXXXXXXXX?text=Hola%20quiero%20una%20cita" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <button class="modal-prev" id="modalPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="modal-next" id="modalNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img src="" alt="Gallery Image" id="modalImage">
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
