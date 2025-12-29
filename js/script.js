@@ -230,7 +230,7 @@
             );
             
             // Uncomment to auto-redirect to WhatsApp
-            // window.open(`https://wa.me/52 56 6143 0855?text=${whatsappMessage}`, '_blank');
+            // window.open(`https://wa.me/525661430855?text=${whatsappMessage}`, '_blank');
         }, 1500);
     }
 
