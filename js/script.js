@@ -1,6 +1,6 @@
 /* ===================================
-   SWAP MakeUp - Main JavaScript
-   Author: SWAP MakeUp
+   Marian Angeles - Main JavaScript
+   Author: Marian Angeles
    Version: 1.0
    =================================== */
 
@@ -230,7 +230,7 @@
             );
             
             // Uncomment to auto-redirect to WhatsApp
-            // window.open(`https://wa.me/52XXXXXXXXXX?text=${whatsappMessage}`, '_blank');
+            // window.open(`https://wa.me/52 56 6143 0855?text=${whatsappMessage}`, '_blank');
         }, 1500);
     }
 

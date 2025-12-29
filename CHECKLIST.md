@@ -1,32 +1,33 @@
-# 📋 Checklist de Personalización - SWAP MakeUp
+# 📋 Checklist de Personalización - Marian Angeles
 
 Usa esta guía para personalizar tu sitio web paso a paso.
 
 ## ✅ Paso 1: Configuración Básica
 
-- [ ] Reemplazar número de WhatsApp en todos los enlaces
-  - Buscar: `52XXXXXXXXXX`
+- [ x] Reemplazar número de WhatsApp en todos los enlaces
+  - Buscar: `52 56 6143 0855`
   - Reemplazar con tu número (formato: 52 + 10 dígitos)
   - Archivos: `index.html`
 
-- [ ] Actualizar información de contacto
-  - [ ] Teléfono (múltiples ubicaciones en footer y contacto)
-  - [ ] Email: `contacto@swapmakeup.com`
-  - [ ] Ubicación: `Ciudad de México, México`
+- [x ] Actualizar información de contacto
+  - [ x] Teléfono (múltiples ubicaciones en footer y contacto)
+  - [ x] Email: `marian.angelesmua@gmail.com`
+  - [ x] Ubicación: `Ciudad de México, México`
 
 ## ✅ Paso 2: Redes Sociales
 
-- [ ] Instagram: `https://instagram.com/swapmakeup`
-- [ ] Facebook: `https://facebook.com/swapmakeup`
-- [ ] TikTok: `https://tiktok.com/@swapmakeup`
-- [ ] WhatsApp: Ya configurado con número de teléfono
+- [ x] Instagram: `https://www.instagram.com/marian_angelesmakeup/?igsh=NWgxcnlydHZ0eXR5#`
+- [ x] Facebook: `https://www.facebook.com/share/1BksNC7sMh/`
+- [ x] TikTok: `https://www.tiktok.com/@marian_angelesmakeup?_r=1&_t=ZS-92d7cKD4IAm`
+- [ x] Pinterest: `https://mx.pinterest.com/MarianAngeles_MakeupArtist/`
+- [ x] WhatsApp: Ya configurado con número de teléfono
 
 ## ✅ Paso 3: Contenido de Texto
 
-- [ ] Sección "Sobre Mí"
-  - [ ] Descripción personal (2 párrafos)
-  - [ ] Años de experiencia
-  - [ ] Número de clientes
+- [ x] Sección "Sobre Mí"
+  - [x ] Descripción personal (2 párrafos)
+  - [ x] Años de experiencia
+  - [ x] Número de clientes
 
 - [ ] Servicios y Precios
   - [ ] Precio Maquillaje de Novia (actual: $2,500)
@@ -52,11 +53,11 @@ Usa esta guía para personalizar tu sitio web paso a paso.
 ## ✅ Paso 5: SEO y Meta Tags
 
 En `index.html`, actualizar:
-- [ ] `<title>` - Título del sitio
-- [ ] Meta description
-- [ ] Meta keywords
-- [ ] Open Graph tags (og:title, og:description, og:image)
-- [ ] Twitter Card tags
+- [ x] `<title>` - Título del sitio
+- [ x] Meta description
+- [ x] Meta keywords
+- [ x] Open Graph tags (og:title, og:description, og:image)
+- [ x] Twitter Card tags
 
 ## ✅ Paso 6: Colores (Opcional)
 

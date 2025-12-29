@@ -1,4 +1,4 @@
-# 💄 SWAP MakeUp - Sitio Web Profesional
+# 💄 Marian Angeles - Sitio Web Profesional
 
 Sitio web estático profesional para artista de maquillaje (Makeup Artist) con diseño moderno, minimalista y elegante.
 
@@ -125,7 +125,7 @@ Coloca tus imágenes en las carpetas correspondientes:
 Edita el archivo `index.html` y reemplaza:
 
 #### Número de WhatsApp
-Busca todas las ocurrencias de `52XXXXXXXXXX` y reemplázalas con tu número:
+Busca todas las ocurrencias de `52 56 6143 0855` y reemplázalas con tu número:
 
 ```html
 <!-- Ejemplo: -->
@@ -242,12 +242,12 @@ Puedes hospedar este sitio en:
 ## 📞 Soporte y Personalización
 
 Para soporte o personalizaciones adicionales:
-- Email: contacto@swapmakeup.com
+- Email: marian.angelesmua@gmail.com
 - WhatsApp: +52 XXX XXX XXXX
 
 ## 📄 Licencia
 
-Este proyecto está diseñado para uso personal y comercial de SWAP MakeUp.
+Este proyecto está diseñado para uso personal y comercial de Marian Angeles.
 
 ## 🎯 Próximas Mejoras (Opcional)
 
@@ -260,6 +260,6 @@ Este proyecto está diseñado para uso personal y comercial de SWAP MakeUp.
 
 ---
 
-**Desarrollado con 💄 para SWAP MakeUp**
+**Desarrollado con 💄 para Marian Angeles**
 
 *Versión 1.0 - Diciembre 2025*
