@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap for the site
+Sitemap: https://marian-angeles.com/sitemap.xml
