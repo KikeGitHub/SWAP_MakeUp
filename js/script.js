@@ -188,11 +188,13 @@
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
             service: document.getElementById('service').value,
-            message: document.getElementById('message').value
+            fecha: document.getElementById('fecha').value,
+            zona: document.getElementById('zona').value,
+            personas: document.getElementById('personas').value
         };
         
         // Validate form
-        if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.message) {
+        if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.fecha || !formData.zona || !formData.personas) {
             showNotification('Por favor completa todos los campos', 'error');
             return;
         }
@@ -212,26 +214,44 @@
             return;
         }
         
-        // Simulate form submission (replace with actual backend API)
-        showNotification('Enviando mensaje...', 'info');
+        // Format date for better display
+        const dateFormatted = new Date(formData.fecha).toLocaleDateString('es-MX', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
         
+        // Get service name from select option text
+        const serviceSelect = document.getElementById('service');
+        const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+        
+        // Get zone name from select option text
+        const zonaSelect = document.getElementById('zona');
+        const zonaName = zonaSelect.options[zonaSelect.selectedIndex].text;
+        
+        // Prepare WhatsApp message (plain labels to avoid encoding issues)
+        const whatsappText =
+            'Hola! Me gustaría agendar un servicio:\n' +
+            'Nombre: ' + formData.name + '\n' +
+            'Email: ' + formData.email + '\n' +
+            'Teléfono: ' + cleanPhone + '\n' +
+            'Servicio: ' + serviceName + '\n' +
+            'Fecha: ' + dateFormatted + '\n' +
+            'Zona: ' + zonaName + '\n' +
+            'Personas: ' + formData.personas + '\n\n' +
+            'Quedo atenta a tu respuesta. Gracias!';
+
+        const whatsappMessage = encodeURIComponent(whatsappText);
+        
+        // Show success message
+        showNotification('Redirigiendo a WhatsApp...', 'success');
+        
+        // Redirect to WhatsApp
         setTimeout(() => {
-            // Success simulation
-            showNotification('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
+            window.open(`https://wa.me/525661430855?text=${whatsappMessage}`, '_blank');
             contactForm.reset();
-            
-            // Optional: Send to WhatsApp
-            const whatsappMessage = encodeURIComponent(
-                `Hola! Mi nombre es ${formData.name}.\n` +
-                `Email: ${formData.email}\n` +
-                `Teléfono: ${formData.phone}\n` +
-                `Servicio: ${formData.service}\n` +
-                `Mensaje: ${formData.message}`
-            );
-            
-            // Uncomment to auto-redirect to WhatsApp
-            // window.open(`https://wa.me/525661430855?text=${whatsappMessage}`, '_blank');
-        }, 1500);
+        }, 800);
     }
 
     // ===================================
