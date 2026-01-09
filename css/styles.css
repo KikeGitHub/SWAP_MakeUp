@@ -97,11 +97,18 @@ ul {
 .section-label {
     display: inline-block;
     color: var(--color-gold);
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     margin-bottom: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .section-label {
+        font-size: 1.25rem;
+        letter-spacing: 1.8px;
+    }
 }
 
 .section-title {
@@ -482,8 +489,8 @@ ul {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
 }
 
 .gallery-item {
@@ -1292,4 +1299,25 @@ ul {
     .scroll-indicator {
         display: none;
     }
+}
+
+/* ===================================
+   CUSTOM SCROLLBAR FOR SERVICE FEATURES
+   =================================== */
+.service-features-scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.service-features-scrollable::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.service-features-scrollable::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 10px;
+}
+
+.service-features-scrollable::-webkit-scrollbar-thumb:hover {
+    background: #a37a45;
 }

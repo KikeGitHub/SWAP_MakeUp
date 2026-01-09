@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximamente | Marian Ángeles Makeup Artist</title>
+    <meta name="description" content="Estamos trabajando en algo increíble. Pronto lanzaremos nuestra nueva página de servicios de maquillaje profesional.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-gold: #b8935a;
+            --color-beige: #f5f0e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2a2a2a 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--color-gold);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--color-gold);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(184, 147, 90, 0.1);
+            border: 1px solid var(--color-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--color-gold);
+            color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(184, 147, 90, 0.3);
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--color-gold);
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--color-gold);
+            color: var(--color-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #c9a56b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(184, 147, 90, 0.3);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+        }
+
+        .decorative-line {
+            width: 80px;
+            height: 2px;
+            background: var(--color-gold);
+            margin: 2rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .contact-item {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .whatsapp-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animación de fondo sutil */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 147, 90, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            bottom: 10%;
+            right: -10%;
+            animation-delay: 3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+
+    <div class="container">
+        <div class="logo">Marian<span>Angeles</span></div>
+        <div class="subtitle">Makeup Artist Profesional</div>
+        
+        <h1>Estamos Preparando Algo Increíble</h1>
+        
+        <div class="decorative-line"></div>
+        
+        <p class="description">
+            Nuestra página está en mantenimiento. Pronto lanzaremos una experiencia completamente renovada 
+            con servicios de maquillaje profesional para novias y eventos en CDMX.
+        </p>
+
+        <a href="https://wa.me/525661430855?text=Hola%2C%20quiero%20información%20sobre%20tus%20servicios" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Contáctame por WhatsApp
+        </a>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/marian_angelesmakeup/?igsh=NWgxcnlydHZ0eXR5#" target="_blank" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1BksNC7sMh/" target="_blank" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.tiktok.com/@marian_angelesmakeup?_r=1&_t=ZS-92d7cKD4IAm" target="_blank" class="social-link" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://mx.pinterest.com/MarianAngeles_MakeupArtist/" target="_blank" class="social-link" aria-label="Pinterest">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>marian.angelesmua@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ciudad de México, México</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
