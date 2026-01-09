@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
     
     <!-- SEO Meta Tags -->
-    <title>Makeup Artist CDMX | Marian Ángeles | Novias & Eventos</title>
+    <title>Makeup Artist CDMX | Marian Angeles | Novias & Eventos</title>
     <meta name="description" content="Maquillista profesional en CDMX y área metropolitana. Especializada en novias y eventos. Servicio a domicilio — agenda tu cita por WhatsApp.">
     <meta name="keywords" content="maquillaje profesional, makeup artist, maquillaje de novias cdmx, maquillaje social, maquillaje polanco, maquillaje santa fe, maquillaje interlomas, maquilladora profesional cdmx, makeup artist mexico, maquillaje eventos, maquillaje a domicilio cdmx, maquillaje roma norte, maquillaje condesa">
     <meta name="author" content="Marian Angeles">
@@ -19,7 +20,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://marian-angeles.com/">
     <meta property="og:site_name" content="Marian Angeles Makeup Artist">
-    <meta property="og:title" content="Marian Ángeles | Makeup Artist Profesional en CDMX | Maquillaje de Novias">
+    <meta property="og:title" content="Marian Angeles | Makeup Artist Profesional en CDMX | Maquillaje de Novias">
     <meta property="og:description" content="Maquillista profesional en CDMX y área metropolitana. Especializada en novias y eventos. Servicio a domicilio — agenda tu cita por WhatsApp.">
     <meta property="og:image" content="https://marian-angeles.com/img/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -29,7 +30,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://marian-angeles.com/">
-    <meta name="twitter:title" content="Marian Ángeles | Makeup Artist Profesional en CDMX">
+    <meta name="twitter:title" content="Marian Angeles | Makeup Artist Profesional en CDMX">
     <meta name="twitter:description" content="Maquillista profesional en CDMX y área metropolitana. Especializada en novias y eventos. Servicio a domicilio — agenda tu cita por WhatsApp.">
     <meta name="twitter:image" content="https://marian-angeles.com/img/og-image.jpg">
     
@@ -160,13 +161,15 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/inline-styles.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
@@ -188,12 +191,12 @@
                         <li><a href="#products" class="nav-link">Productos</a></li>
                         <li><a href="#contact" class="nav-link">Contacto</a></li>
                     </ul>
-                    <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank">
+                    <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank" rel="noopener">
                         Agendar Cita
                     </a>
                 </div>
                 
-                <button class="nav-toggle" id="navToggle">
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -209,11 +212,11 @@
             <div class="hero-text">
                 <h1 class="hero-title">
                     <span class="subtitle">Makeup Artist Profesional en CDMX</span>
-                    <span class="main-title">Marian Ángeles</span>
+                    <span class="main-title">Marian Angeles</span>
                 </h1>
                 <p class="hero-description">Transformando tu belleza en arte con técnicas profesionales y productos de alta calidad</p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank">
+                    <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp"></i> Agendar Cita
                     </a>
                     <a href="#gallery" class="btn btn-secondary">
@@ -232,14 +235,14 @@
         <div class="container">
             <div class="about-wrapper">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="img/about-photo.jpeg" alt="Marian Angeles Artist" loading="lazy">
+                    <img src="img/about-photo.jpeg" alt="Marian Angeles Makeup Artist profesional trabajando en CDMX" loading="lazy" width="600" height="800">
                     <div class="about-image-overlay"></div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
                     <span class="section-label">Conoce mi historia</span>
                     <h2 class="section-title">Maquillista Profesional en CDMX • 10+ años</h2>
                     <p class="about-text" style="font-size:0.95rem;">
-                        ¡Hola! Soy Marian Ángeles, una apasionada artista del maquillaje y peinado en CDMX.
+                        ¡Hola! Soy Marian Angeles, una apasionada artista del maquillaje y peinado en CDMX.
                     </p>
                     <p class="about-text" style="font-size:0.95rem; text-align:justify;">
                         Mi misión es que te sientas tú misma, con ese toque de luz y sofisticación que te haga brillar. Con más de 10 años
@@ -289,7 +292,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 2rem; text-align: center; width:100%;">
-                    <a href="https://wa.me/525661430855?text=Hola%20quiero%20consultar%20disponibilidad" class="btn btn-primary" target="_blank">Consulta disponibilidad</a>
+                    <a href="https://wa.me/525661430855?text=Hola%20quiero%20consultar%20disponibilidad" class="btn btn-primary" target="_blank" rel="noopener">Consulta disponibilidad</a>
                 </div>
             </div>
         </div>
@@ -346,6 +349,50 @@
             
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Gallery items will be loaded here -->
+
+                <!-- New priority images (inserted first) -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg" alt="maquillaje-novia-natural-glowskin.jpg_xlfnq6" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/peinado-novia-elegante.jpg_nsm6ww.jpg" alt="peinado-novia-elegante.jpg_nsm6ww" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/maquillaje-novia-dia.jpg_ror7ud.jpg" alt="maquillaje-novia-dia.jpg_ror7ud" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/peinado-novia-romantica.jpg_ppzudh.jpg" alt="peinado-novia-romantica.jpg_ppzudh" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/peinado-novia-dia.jpg_byr8kk.jpg" alt="peinado-novia-dia.jpg_byr8kk" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980711/maquillaje-novia-natural.jpg_suqyey.png" alt="maquillaje-novia-natural.jpg_suqyey" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767933488/maquillaje-peinado-dama.cdmx_ocl38b.jpg" alt="Maquillaje y peinado profesional para dama de boda en CDMX" loading="lazy">
                     <div class="gallery-overlay">
@@ -582,7 +629,7 @@
                         <p class="service-description" style="font-size: 0.88rem; color: #666; line-height: 1.5; margin-bottom: 1rem; text-align: justify;">
                             ¿Buscas el look perfecto para tu gran día? Como especialista en maquillaje para novias y peinado profesional, mi objetivo es que luzcas radiante, cómoda y con un estilo que dure toda la celebración.
                         </p>
-                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20para%20Novias" class="btn btn-outline" target="_blank" style="width: 100%; margin-top: auto;">
+                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20para%20Novias" class="btn btn-outline" target="_blank" rel="noopener" style="width: 100%; margin-top: auto;">
                             Cotiza
                         </a>
                     </div>
@@ -596,7 +643,7 @@
                         <p class="service-description" style="font-size: 0.88rem; color: #e0e0e0; line-height: 1.5; margin-bottom: 1rem;">
                             ¿Tienes un evento próximo? Ya sea una invitación a una boda, una fiesta, reunión importante o un evento de gala. Elige un social y vive la experiencia de un servicio personalizado para tu tipo de evento.
                         </p>
-                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20para%20Evento%20Social" class="btn btn-primary" target="_blank" style="width: 100%; background: var(--color-gold); color: #000; border: none; margin-top: auto;">
+                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20para%20Evento%20Social" class="btn btn-primary" target="_blank" rel="noopener" style="width: 100%; background: var(--color-gold); color: #000; border: none; margin-top: auto;">
                             Cotiza
                         </a>
                     </div>
@@ -609,7 +656,7 @@
                         <p class="service-description" style="font-size: 0.88rem; color: #666; line-height: 1.5; margin-bottom: 1rem; text-align: justify;">
                             ¿Lista para brillar? Tu noche merece un look de impacto. Me especializo en crear estilos que resaltan tu juventud y personalidad, asegurando que te veas increíble tanto en persona como en tus fotos y videos. Este servicio cuenta con paquetes especiales para grupos de graduadas.
                         </p>
-                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20para%20Xv%20años%20y%20Graduadas" class="btn btn-outline" target="_blank" style="width: 100%; margin-top: auto;">
+                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Maquillaje%20para%20Xv%20años%20y%20Graduadas" class="btn btn-outline" target="_blank" rel="noopener" style="width: 100%; margin-top: auto;">
                             Cotiza
                         </a>
                     </div>
@@ -630,7 +677,7 @@
                                 <li><i class="fas fa-check" style="color: var(--color-gold); margin-right: 0.4rem;"></i> Retoques durante sesión</li>
                             </ul>
                         </div>
-                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Fotografia%20y%20video" class="btn btn-outline" target="_blank" style="width: 100%; margin-top: auto;">
+                        <a href="https://wa.me/525661430855?text=Me%20interesa%20el%20servicio%20de%20Fotografia%20y%20video" class="btn btn-outline" target="_blank" rel="noopener" style="width: 100%; margin-top: auto;">
                             Cotiza
                         </a>
                     </div>
@@ -779,19 +826,19 @@
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://www.instagram.com/marian_angelesmakeup/?igsh=NWgxcnlydHZ0eXR5#" target="_blank" class="social-link">
+                        <a href="https://www.instagram.com/marian_angelesmakeup/?igsh=NWgxcnlydHZ0eXR5#" target="_blank" rel="noopener" class="social-link" aria-label="Instagram de Marian Angeles">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com/share/1BksNC7sMh/" target="_blank" class="social-link">
+                        <a href="https://www.facebook.com/share/1BksNC7sMh/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook de Marian Angeles">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@marian_angelesmakeup?_r=1&_t=ZS-92d7cKD4IAm" target="_blank" class="social-link">
+                        <a href="https://www.tiktok.com/@marian_angelesmakeup?_r=1&_t=ZS-92d7cKD4IAm" target="_blank" rel="noopener" class="social-link" aria-label="TikTok de Marian Angeles">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://mx.pinterest.com/MarianAngeles_MakeupArtist/" target="_blank" class="social-link">
+                        <a href="https://mx.pinterest.com/MarianAngeles_MakeupArtist/" target="_blank" rel="noopener" class="social-link" aria-label="Pinterest de Marian Angeles">
                             <i class="fab fa-pinterest"></i>
                         </a>
-                        <a href="https://wa.me/525661430855" target="_blank" class="social-link">
+                        <a href="https://wa.me/525661430855" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp de Marian Angeles">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -802,19 +849,19 @@
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div class="form-group">
                             <label for="name" style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #333; font-size: 0.9rem;">Nombre</label>
-                            <input type="text" id="name" name="name" placeholder="Tu nombre completo" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
+                            <input type="text" id="name" name="name" placeholder="Tu nombre completo" required autocomplete="name" style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
                         </div>
                         
                         <div class="form-group">
                             <label for="phone" style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #333; font-size: 0.9rem;">Teléfono</label>
-                            <input type="tel" id="phone" name="phone" placeholder="55 1234 5678" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
+                            <input type="tel" id="phone" name="phone" placeholder="55 1234 5678" required autocomplete="tel" style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
                         </div>
                     </div>
                     
                     <!-- Segunda fila - Email completo -->
                     <div class="form-group" style="margin-bottom: 1rem;">
                         <label for="email" style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #333; font-size: 0.9rem;">Correo electrónico</label>
-                        <input type="email" id="email" name="email" placeholder="tu@email.com" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
                     </div>
                     
                     <!-- Tercera fila - Servicio y fecha -->
@@ -944,16 +991,16 @@
                 <div class="footer-social">
                     <h4>Sígueme</h4>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/marian_angelesmakeup/?igsh=NWgxcnlydHZ0eXR5#" target="_blank">
+                        <a href="https://www.instagram.com/marian_angelesmakeup/?igsh=NWgxcnlydHZ0eXR5#" target="_blank" rel="noopener" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com/share/1BksNC7sMh/" target="_blank">
+                        <a href="https://www.facebook.com/share/1BksNC7sMh/" target="_blank" rel="noopener" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@marian_angelesmakeup?_r=1&_t=ZS-92d7cKD4IAm" target="_blank">
+                        <a href="https://www.tiktok.com/@marian_angelesmakeup?_r=1&_t=ZS-92d7cKD4IAm" target="_blank" rel="noopener" aria-label="TikTok">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://mx.pinterest.com/MarianAngeles_MakeupArtist/" target="_blank">
+                        <a href="https://mx.pinterest.com/MarianAngeles_MakeupArtist/" target="_blank" rel="noopener" aria-label="Pinterest">
                             <i class="fab fa-pinterest"></i>
                         </a>
                     </div>
@@ -961,23 +1008,23 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Marian Angeles. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Marian Angeles. Todos los derechos reservados. <span class="footer-version">v1.0.0</span></p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Gallery Modal -->
-    <div class="modal" id="galleryModal">
-        <button class="modal-close" id="modalClose">&times;</button>
-        <button class="modal-prev" id="modalPrev">
+    <div class="modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Galería de imágenes">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar galería">&times;</button>
+        <button class="modal-prev" id="modalPrev" aria-label="Imagen anterior">
             <i class="fas fa-chevron-left"></i>
         </button>
-        <button class="modal-next" id="modalNext">
+        <button class="modal-next" id="modalNext" aria-label="Imagen siguiente">
             <i class="fas fa-chevron-right"></i>
         </button>
         <img src="" alt="Gallery Image" id="modalImage">
@@ -1061,7 +1108,7 @@
     </style>
 
     <!-- Scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     
 </body>
 </html>

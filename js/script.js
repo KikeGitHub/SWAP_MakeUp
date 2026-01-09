@@ -40,15 +40,18 @@
     // MOBILE MENU TOGGLE
     // ===================================
     function toggleMobileMenu() {
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
+        
+        // Update aria-expanded attribute
+        navToggle.setAttribute('aria-expanded', isActive);
         
         // Animate hamburger icon
         const spans = navToggle.querySelectorAll('span');
-        spans[0].style.transform = navMenu.classList.contains('active') 
+        spans[0].style.transform = isActive 
             ? 'rotate(45deg) translate(5px, 5px)' 
             : 'none';
-        spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
-        spans[2].style.transform = navMenu.classList.contains('active') 
+        spans[1].style.opacity = isActive ? '0' : '1';
+        spans[2].style.transform = isActive 
             ? 'rotate(-45deg) translate(7px, -6px)' 
             : 'none';
     }
@@ -133,11 +136,16 @@
         modalImage.alt = imageData.alt;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // Set focus to modal for accessibility
+        modal.setAttribute('tabindex', '-1');
+        modal.focus();
     }
 
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
+        modal.removeAttribute('tabindex');
     }
 
     function showPreviousImage() {
@@ -249,7 +257,7 @@
         
         // Redirect to WhatsApp
         setTimeout(() => {
-            window.open(`https://wa.me/525661430855?text=${whatsappMessage}`, '_blank');
+            window.open(`https://wa.me/525661430855?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
             contactForm.reset();
         }, 800);
     }
