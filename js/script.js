@@ -1,7 +1,7 @@
 /* ===================================
    Marian Angeles - Main JavaScript
    Author: Marian Angeles
-   Version: 1.0
+    Version: 1.1
    =================================== */
 
 (function() {
