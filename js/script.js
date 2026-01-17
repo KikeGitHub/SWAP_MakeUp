@@ -322,47 +322,20 @@
     }
 
     // ===================================
-    // SCROLL TO TOP BUTTON (Optional)
+    // SCROLL TO TOP BUTTON
     // ===================================
-    function createScrollToTop() {
-        const scrollBtn = document.createElement('button');
-        scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        scrollBtn.className = 'scroll-to-top';
-        scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    function initScrollToTop() {
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (!scrollBtn) return;
         
-        scrollBtn.style.cssText = `
-            position: fixed;
-            bottom: 6rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: var(--color-gold);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.25rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 998;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        `;
-        
-        document.body.appendChild(scrollBtn);
-        
-        // Show/hide button based on scroll position
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
-                scrollBtn.style.opacity = '1';
-                scrollBtn.style.visibility = 'visible';
+                scrollBtn.classList.add('visible');
             } else {
-                scrollBtn.style.opacity = '0';
-                scrollBtn.style.visibility = 'hidden';
+                scrollBtn.classList.remove('visible');
             }
         });
         
-        // Scroll to top on click
         scrollBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -473,8 +446,8 @@
             contactForm.addEventListener('submit', handleFormSubmit);
         }
         
-        // Create scroll to top button
-        createScrollToTop();
+        // Initialize scroll to top button
+        initScrollToTop();
         
         // Set initial navbar state
         handleNavbarScroll();
