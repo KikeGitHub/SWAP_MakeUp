@@ -68,10 +68,11 @@
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                // Use scrollIntoView to avoid forced synchronous layouts
+                // and remove the need to read layout properties like offsetTop.
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
                 
                 // Close mobile menu if open

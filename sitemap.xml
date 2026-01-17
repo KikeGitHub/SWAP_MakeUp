@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!--
+    Optimized sitemap:
+    - Keep only canonical URLs to avoid duplicate-content signals
+    - Include main page images (OG / hero) to improve rich results and image discovery
+    - Update `lastmod` to current maintenance date
+  -->
   <url>
     <loc>https://marian-angeles.com/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://marian-angeles.com/index_resp.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://marian-angeles.com/index.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://marian-angeles.com/img/hero-bg.jpg</image:loc>
+      <image:caption>Hero — Marian Angeles Makeup Artist</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1200,v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>About — Marian Angeles Makeup Artist</image:caption>
+    </image:image>
   </url>
 </urlset>
