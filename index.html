@@ -41,13 +41,14 @@
         <!-- Schema.org JSON-LD for LocalBusiness (externalized to avoid inline scripts) -->
         <script type="application/ld+json" src="js/schema.json"></script>
     
-    <!-- Fonts -->
+    <!-- Fonts: preconnect + preload to avoid render-blocking; applied by js/load-css.js -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <!-- If you want the fastest, self-host WOFF2 and add <link rel=preload as=font crossorigin> entries for each file. -->
     
-    <!-- Font Awesome (preload -> applied by js/load-css.js) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <!-- Font Awesome: defer loading to idle (we inline critical icons as SVG) -->
+    <link data-defer-stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Local critical + main styles (preload -> applied by js/load-css.js) -->
     <link rel="preload" href="css/inline-styles.css" as="style">
     <link rel="preload" href="css/styles.css" as="style">
@@ -87,7 +88,7 @@
                         <li><a href="#contact" class="nav-link">Contacto</a></li>
                     </ul>
                     <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i> Agendar Cita
+                        <svg class="icon icon-whatsapp" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="margin-right:0.5rem;vertical-align:middle"><path fill="currentColor" d="M20.52 3.48a11.77 11.77 0 0 0-16.64 0 11.77 11.77 0 0 0 0 16.64l1.47 1.47 3.3-1.02a1 1 0 0 1 .95.24l2.18 2.18 1.47-1.47a11.77 11.77 0 0 0 0-16.64zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"></path></svg>Agendar Cita
                     </a>
                 </div>
                 
@@ -112,7 +113,7 @@
                 <p class="hero-description">Transformando tu belleza en arte con técnicas profesionales y productos de alta calidad</p>
                 <div class="hero-buttons">
                     <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="btn btn-primary" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i> Agendar Cita
+                        <svg class="icon icon-whatsapp" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="margin-right:0.5rem;vertical-align:middle"><path fill="currentColor" d="M20.52 3.48a11.77 11.77 0 0 0-16.64 0 11.77 11.77 0 0 0 0 16.64l1.47 1.47 3.3-1.02a1 1 0 0 1 .95.24l2.18 2.18 1.47-1.47a11.77 11.77 0 0 0 0-16.64zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"></path></svg>Agendar Cita
                     </a>
                     <a href="#gallery" class="btn btn-secondary">
                         Ver Portafolio
@@ -948,22 +949,22 @@
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/525661430855?text=Hola%20quiero%20una%20cita" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+        <svg class="icon icon-whatsapp" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48a11.77 11.77 0 0 0-16.64 0 11.77 11.77 0 0 0 0 16.64l1.47 1.47 3.3-1.02a1 1 0 0 1 .95.24l2.18 2.18 1.47-1.47a11.77 11.77 0 0 0 0-16.64zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
     </a>
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="scroll-to-top" aria-label="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
     </button>
 
     <!-- Gallery Modal -->
     <div class="modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Galería de imágenes">
         <button class="modal-close" id="modalClose" aria-label="Cerrar galería">&times;</button>
         <button class="modal-prev" id="modalPrev" aria-label="Imagen anterior">
-            <i class="fas fa-chevron-left"></i>
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
         </button>
         <button class="modal-next" id="modalNext" aria-label="Imagen siguiente">
-            <i class="fas fa-chevron-right"></i>
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
         </button>
         <img src="" alt="Gallery Image" id="modalImage">
     </div>
