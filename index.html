@@ -25,7 +25,7 @@
     <!-- Descripción para compartir (enfocada en conversión) -->
     <meta property="og:description" content="Luce increíble en tu día. Maquillaje para novias y eventos especiales en CDMX. ¡Agenda tu cita y resalta tu belleza!">
     <!-- Imagen para compartir (dimensiones recomendadas: 1200x630px) -->
-    <meta property="og:image" content="https://marian-angeles.com/img/about-photo.jpeg">
+    <meta property="og:image" content="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1768620729/about-photo_ncah4k.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <!-- Localización para dirigir el contenido correctamente -->
@@ -117,6 +117,10 @@
         },
         {
           "@type": "City",
+          "name": "Pachuca"
+        },
+        {
+          "@type": "City",
           "name": "Metepec"
         },
         {
@@ -126,6 +130,14 @@
         {
           "@type": "City",
           "name": "Morelos"
+        },
+        {
+          "@type": "City",
+          "name": "Cuernavaca"
+        },
+        {
+          "@type": "City",
+          "name": "Valle de Bravo"
         }
       ],
       "priceRange": "$$",
@@ -185,11 +197,15 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Stylesheet -->
+    <!-- Preload hero and key images to improve LCP (non-intrusive) -->
+    <link rel="preload" href="img/hero-bg.jpg" as="image" importance="high">
+    <link rel="preload" href="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg" as="image" importance="low">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/inline-styles.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
 <body>
     
@@ -252,7 +268,16 @@
         <div class="container">
             <div class="about-wrapper">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="img/about-photo.jpeg" alt="Marian Angeles Makeup Artist profesional trabajando en CDMX" loading="lazy" width="600" height="800">
+                    <img
+                        src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1024/v1768620729/about-photo_ncah4k.jpg"
+                        srcset="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_480/v1768620729/about-photo_ncah4k.jpg 480w,
+                                https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_768/v1768620729/about-photo_ncah4k.jpg 768w,
+                                https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1024/v1768620729/about-photo_ncah4k.jpg 1024w,
+                                https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1600/v1768620729/about-photo_ncah4k.jpg 1600w"
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        alt="Marian Angeles Makeup Artist profesional trabajando en CDMX"
+                        loading="lazy"
+                        width="600" height="800">
                     <div class="about-image-overlay"></div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
