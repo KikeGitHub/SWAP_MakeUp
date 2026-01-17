@@ -25,7 +25,7 @@
     <!-- Descripción para compartir (enfocada en conversión) -->
     <meta property="og:description" content="Luce increíble en tu día. Maquillaje para novias y eventos especiales en CDMX. ¡Agenda tu cita y resalta tu belleza!">
     <!-- Imagen para compartir (dimensiones recomendadas: 1200x630px) -->
-    <meta property="og:image" content="https://marian-angeles.com/img/about-photo.jpeg">
+    <meta property="og:image" content="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1768620729/about-photo_ncah4k.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <!-- Localización para dirigir el contenido correctamente -->
@@ -61,6 +61,7 @@
         "latitude": "19.4326",
         "longitude": "-99.1332"
       },
+            "hasMap": "https://www.google.com/maps?q=Ciudad+de+Mexico&z=10",
       "areaServed": [
         {
           "@type": "City",
@@ -112,7 +113,31 @@
         },
         {
           "@type": "City",
-          "name": "Guadalajara"
+          "name": "Hidalgo"
+        },
+        {
+          "@type": "City",
+          "name": "Pachuca"
+        },
+        {
+          "@type": "City",
+          "name": "Metepec"
+        },
+        {
+          "@type": "City",
+          "name": "Puebla"
+        },
+        {
+          "@type": "City",
+          "name": "Morelos"
+        },
+        {
+          "@type": "City",
+          "name": "Cuernavaca"
+        },
+        {
+          "@type": "City",
+          "name": "Valle de Bravo"
         }
       ],
       "priceRange": "$$",
@@ -170,13 +195,28 @@
     <!-- Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="css/fa-font-display.css">
     
     <!-- Stylesheet -->
+    <!-- Preload hero and key images to improve LCP (non-intrusive) -->
+    <link rel="preload" href="img/hero-bg.jpg" as="image" importance="high">
+    <link rel="preload" href="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg" as="image" importance="low">
+        <!-- Critical CSS for hero (inline to reduce LCP render delay) -->
+        <style>
+            .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);background-image:url('img/hero-bg.jpg');background-size:cover;background-position:center;overflow:hidden}
+            .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.4) 100%);z-index:1}
+            .hero-content{position:relative;z-index:2;text-align:center;color:#fff;animation:fadeInUp 1s ease}
+            .hero-title{display:flex;flex-direction:column;gap:1rem}
+            .subtitle{font-family:var(--font-primary);font-size:1.25rem;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--color-gold)}
+            .main-title{font-family:var(--font-secondary);font-size:5rem;font-weight:700;letter-spacing:2px;line-height:1.1}
+            .hero-description{font-size:1.25rem;margin:2rem auto;max-width:600px;opacity:.9}
+        </style>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/inline-styles.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
 <body>
     
@@ -239,7 +279,16 @@
         <div class="container">
             <div class="about-wrapper">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="img/about-photo.jpeg" alt="Marian Angeles Makeup Artist profesional trabajando en CDMX" loading="lazy" width="600" height="800">
+                    <img
+                        src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1024/v1768620729/about-photo_ncah4k.jpg"
+                        srcset="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_480/v1768620729/about-photo_ncah4k.jpg 480w,
+                                https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_768/v1768620729/about-photo_ncah4k.jpg 768w,
+                                https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1024/v1768620729/about-photo_ncah4k.jpg 1024w,
+                                https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1600/v1768620729/about-photo_ncah4k.jpg 1600w"
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        alt="Marian Angeles Makeup Artist profesional trabajando en CDMX"
+                        loading="lazy"
+                        width="600" height="800">
                     <div class="about-image-overlay"></div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
@@ -925,6 +974,39 @@
                 </form>
             </div>
         </div>
+    </section>
+
+    <!-- Map Section: responsive, accessible embed for SEO/CTR -->
+    <section class="map-section" aria-label="Ubicación en Google Maps" style="padding: 30px 0; background: #fff;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Encuéntrame</span>
+                <h2 class="section-title">Ubicación</h2>
+                <p class="section-description">Ubicación en Ciudad de México — abre en Google Maps para indicaciones</p>
+            </div>
+            <div class="map-wrapper" style="max-width: 1100px; margin: 1rem auto; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08);">
+                <iframe
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Ciudad+de+Mexico&z=10&output=embed"
+                    title="Mapa de cobertura: Ciudad de México — Marian Angeles"
+                    width="100%" height="450" style="border:0; display:block;" aria-hidden="false"></iframe>
+            </div>
+            <div style="text-align:center; margin-top:0.6rem;">
+                <a href="https://www.google.com/maps?q=Ciudad+de+Mexico&z=10" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="background:transparent; border:1px solid #ddd; padding:0.6rem 0.9rem; border-radius:8px;">Abrir en Google Maps</a>
+                <p style="margin-top:0.6rem; color:#666; font-size:0.95rem;">Dirección aproximada: Ciudad de México. Para indicaciones, abre en Google Maps.</p>
+            </div>
+            <noscript>
+                <div style="text-align:center; margin-top:0.75rem;">
+                    <a href="https://www.google.com/maps?q=Ciudad+de+Mexico&z=10" target="_blank" rel="noopener noreferrer">Ver la cobertura en Google Maps</a>
+                </div>
+            </noscript>
+        </div>
+        <style>
+            .map-wrapper iframe { width:100%; height:100%; min-height:280px; aspect-ratio: 16/9; }
+            @media (max-width:480px){ .map-wrapper iframe{ min-height:220px; } }
+        </style>
     </section>
 
     <!-- Service Areas Section -->
