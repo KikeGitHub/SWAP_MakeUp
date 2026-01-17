@@ -8,6 +8,18 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--font-primary);color:var(--color-primary);background:#fff;line-height:1.7;overflow-x:hidden}
+
+/* Font rendering & CLS mitigation
+     - Google Fonts is requested with `display=swap` (see index.html).
+     - Add `font-size-adjust` as a best-effort metric override to reduce layout shifts
+         when the fallback font is used before webfonts load.
+     - A tiny `js/font-check.js` marks `.fonts-loaded` on <html> when document.fonts.ready
+         resolves; you can use that selector for subtle transitions if desired.
+*/
+body{font-size-adjust:0.52}
+
+/* Headings use Playfair Display (serif) — tune size-adjust for closer x-height match */
+.main-title, h1, h2, h3, .section-title { font-size-adjust: 0.48 }
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit;transition:var(--transition-fast)}
 ul{list-style:none}
