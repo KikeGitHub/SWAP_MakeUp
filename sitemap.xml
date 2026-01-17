@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Sitemap optimizado: solo URL canónica principal (single-page site)
+       + imágenes prioritarias para Image Search -->
   <url>
     <loc>https://marian-angeles.com/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://marian-angeles.com/index_resp.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://marian-angeles.com/index.html</loc>
-    <lastmod>2026-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <!-- Open Graph / Hero image -->
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1200/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Marian Angeles - Makeup Artist Profesional</image:caption>
+    </image:image>
+    <!-- About photo (responsive source) -->
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_900/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillaje profesional a domicilio en CDMX</image:caption>
+    </image:image>
+    <!-- Gallery highlights (seed for Image Search) -->
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg</image:loc>
+      <image:caption>Maquillaje novia natural - glowskin</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/peinado-novia-elegante.jpg_nsm6ww.jpg</image:loc>
+      <image:caption>Peinado novia elegante</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/maquillaje-novia-dia.jpg_ror7ud.jpg</image:loc>
+      <image:caption>Maquillaje novia de día</image:caption>
+    </image:image>
   </url>
 </urlset>
