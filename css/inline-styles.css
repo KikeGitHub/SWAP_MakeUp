@@ -3,6 +3,51 @@
    This file contains styles that were previously inline
    =================================== */
 
+/* --- Critical CSS (migrated from inline <style id="critical-css"> in index.html) --- */
+:root{--color-primary:#1a1a1a;--color-secondary:#d4af85;--color-accent:#c9a66b;--color-beige:#f5f0e8;--color-gold:#b8935a;--color-white:#fff;--color-black:#0a0a0a;--font-primary:'Poppins',sans-serif;--font-secondary:'Playfair Display',serif;--transition-fast:.3s ease;--shadow-md:0 4px 20px rgba(0,0,0,.15);--radius-md:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-primary);color:var(--color-primary);background:#fff;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit;transition:var(--transition-fast)}
+ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.navbar{position:fixed;top:0;left:0;width:100%;padding:1.5rem 0;background:transparent;transition:var(--transition-fast);z-index:1000}
+.navbar.scrolled{background:rgba(255,255,255,.98);box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1rem 0}
+.nav-wrapper{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--font-secondary);font-size:1.75rem;font-weight:700;color:var(--color-white);letter-spacing:1px}
+.navbar.scrolled .logo{color:var(--color-primary)}
+.logo span{color:var(--color-gold)}
+.nav-menu{display:flex;align-items:center;gap:3rem}
+.nav-list{display:flex;gap:2.5rem;align-items:center}
+.nav-link{color:var(--color-white);font-weight:500;font-size:.95rem;position:relative;transition:var(--transition-fast)}
+.navbar.scrolled .nav-link{color:var(--color-primary)}
+.nav-link::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--color-gold);transition:var(--transition-fast)}
+.nav-link:hover::after{width:100%}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:0 0;border:0;cursor:pointer;padding:0}
+.nav-toggle span{width:25px;height:3px;background:var(--color-white);border-radius:3px;transition:var(--transition-fast)}
+.navbar.scrolled .nav-toggle span{background:var(--color-primary)}
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--color-primary) 0%,#2d2d2d 100%);background-image:url('img/hero-bg.jpg');background-size:cover;background-position:center;background-attachment:fixed;overflow:hidden}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.4) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--color-white)}
+.hero-title{display:flex;flex-direction:column;gap:1rem}
+.subtitle{font-family:var(--font-primary);font-size:1.25rem;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--color-gold)}
+.main-title{font-family:var(--font-secondary);font-size:5rem;font-weight:700;letter-spacing:2px;line-height:1.1}
+.hero-description{font-size:1.25rem;margin:2rem auto;max-width:600px;opacity:.9}
+.hero-buttons{display:flex;gap:1.5rem;justify-content:center;margin-top:3rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:0;border-radius:var(--radius-md);cursor:pointer;transition:all var(--transition-fast);text-align:center}
+.btn-primary{background:var(--color-primary);color:var(--color-white)}
+.btn-primary:hover{background:var(--color-gold);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn-secondary{background:0 0;color:var(--color-white);border:2px solid var(--color-white)}
+.btn-secondary:hover{background:var(--color-white);color:var(--color-primary)}
+.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2}
+.scroll-indicator span{display:block;width:24px;height:40px;border:2px solid var(--color-white);border-radius:12px;position:relative}
+.scroll-indicator span::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:var(--color-white);border-radius:2px;animation:scrollDown 2s infinite}
+@keyframes scrollDown{0%{opacity:0;transform:translate(-50%,-6px)}50%{opacity:1;transform:translate(-50%,6px)}100%{opacity:0;transform:translate(-50%,14px)}}
+@media(max-width:992px){.hero{min-height:620px}.main-title{font-size:3.2rem}.hero-buttons{flex-direction:column}}
+
+/* --- End critical CSS migration --- */
+
 /* About Section Styles */
 .about-text {
     font-size: 0.95rem;

@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://marian-angeles.com/",
+  "name": "Marian Angeles - Makeup Artist Profesional",
+  "image": "https://marian-angeles.com/img/og-image.jpg",
+  "description": "Maquillista profesional en CDMX y área metropolitana. Especializada en novias y eventos; servicio a domicilio.",
+  "url": "https://marian-angeles.com/",
+  "telephone": "+525566143085",
+  "email": "marian.angelesmua@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ciudad de México",
+    "addressRegion": "CDMX",
+    "addressCountry": "MX"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "19.4326",
+    "longitude": "-99.1332"
+  }
+}

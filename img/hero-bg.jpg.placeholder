@@ -1,0 +1,9 @@
+This is a placeholder file named hero-bg.jpg.placeholder.
+
+I cannot recreate the original binary JPG image. Please replace this file with the real image at:
+img/hero-bg.jpg
+
+Commands to replace on Windows PowerShell:
+
+mkdir -Force .\img
+Copy-Item C:\path\to\your\hero-bg.jpg .\img\hero-bg.jpg
