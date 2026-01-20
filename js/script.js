@@ -8,6 +8,31 @@
     'use strict';
 
     // ===================================
+    // WHATSAPP CLICK TRACKING (GA4)
+    // Sends a `click_whatsapp` event to gtag (or dataLayer fallback)
+    function initWhatsappTracking() {
+        const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+        if (!waLinks || waLinks.length === 0) return;
+
+        waLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                try {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'click_whatsapp', {
+                            method: 'whatsapp',
+                            event_category: 'engagement'
+                        });
+                    } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+                        window.dataLayer.push({ event: 'click_whatsapp', method: 'whatsapp' });
+                    }
+                } catch (e) {
+                    // silent
+                }
+            }, { passive: true });
+        });
+    }
+
+    // ===================================
     // GLOBAL VARIABLES
     // ===================================
     const navbar = document.getElementById('navbar');
@@ -479,6 +504,8 @@
         
         // Set initial navbar state
         handleNavbarScroll();
+        // Initialize WhatsApp click tracking for GA4
+        initWhatsappTracking();
     }
 
     // ===================================
