@@ -8,28 +8,59 @@
     'use strict';
 
     // ===================================
-    // WHATSAPP CLICK TRACKING (GA4)
-    // Sends a `click_whatsapp` event to gtag (or dataLayer fallback)
-    function initWhatsappTracking() {
-        const waLinks = document.querySelectorAll('a[href*="wa.me"]');
-        if (!waLinks || waLinks.length === 0) return;
+    // GA4 EVENT TRACKING SYSTEM
+    // Rastreo profesional de eventos de conversión y engagement
+    // ===================================
+    
+    function sendGtagEvent(eventName, params = {}) {
+        try {
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, params);
+            } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+                window.dataLayer.push({ event: eventName, ...params });
+            }
+        } catch (e) {
+            console.debug('GA4 event not sent:', eventName);
+        }
+    }
 
-        waLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                try {
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'click_whatsapp', {
-                            method: 'whatsapp',
-                            event_category: 'engagement'
-                        });
-                    } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
-                        window.dataLayer.push({ event: 'click_whatsapp', method: 'whatsapp' });
-                    }
-                } catch (e) {
-                    // silent
-                }
-            }, { passive: true });
-        });
+    // ===================================
+    // RASTREO DE ELEMENTOS CON DATA-GTAG-*
+    // Sistema genérico que funciona para WhatsApp, redes sociales, CTAs, etc.
+    function initGtagTracking() {
+        document.addEventListener('click', function (e) {
+            const el = e.target.closest && e.target.closest('[data-gtag-event]');
+            if (!el) return;
+
+            const eventName = el.dataset.gtagEvent;
+            const method = el.dataset.gtagMethod || 'link';
+            const label = el.dataset.gtagLabel || (el.textContent || '').trim().slice(0, 100);
+            const value = el.dataset.gtagValue ? Number(el.dataset.gtagValue) : undefined;
+            const contentType = el.dataset.gtagContentType || 'cta';
+            const contentId = el.dataset.gtagContentId || label;
+
+            const params = {
+                method: method,
+                content_type: contentType,
+                content_id: contentId,
+                link_url: el.href || '',
+                page_location: location.pathname
+            };
+            
+            if (!isNaN(value)) params.value = value;
+
+            // Enviar evento a GA4
+            sendGtagEvent(eventName, params);
+
+            // Para links externos (no _blank), permitir navegación después del evento
+            // Si es _blank, el evento se envía y se abre sin esperar
+            if (el.href && el.target !== '_blank') {
+                e.preventDefault();
+                setTimeout(function () {
+                    window.location = el.href;
+                }, 100);
+            }
+        }, false);
     }
 
     // ===================================
@@ -504,8 +535,9 @@
         
         // Set initial navbar state
         handleNavbarScroll();
-        // Initialize WhatsApp click tracking for GA4
-        initWhatsappTracking();
+        
+        // Initialize GA4 event tracking system
+        initGtagTracking();
     }
 
     // ===================================
