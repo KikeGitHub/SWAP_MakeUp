@@ -970,17 +970,19 @@
                 <h2 class="section-title">Ubicación</h2>
                 <p class="section-description">Ubicación en Ciudad de México — abre en Google Maps para indicaciones</p>
             </div>
+
+            <p class="map-trustline" style="text-align:center;font-size:14px;color:#666;margin:0.6rem 0 1rem;">
+                ⭐ Calificados en Google por nuestros clientes reales
+            </p>
             <div class="map-wrapper" style="max-width: 1100px; margin: 1rem auto; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08);">
-                <iframe
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?q=Ciudad+de+Mexico&z=10&output=embed"
-                    title="Mapa de cobertura: Ciudad de México — Marian Angeles"
-                    width="100%" height="450" style="border:0; display:block;" aria-hidden="false"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d572851.8088272931!2d-99.20921264685676!3d19.397199324416203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa3fe30434174bc3b%3A0x11c02a437fa67c2f!2sMarian%20Angeles%20Maquillaje%20y%20Peinado%20a%20Domicilio!5e0!3m2!1ses!2smx!4v1769024930405!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+
+            <div class="map-reviews" style="max-width:900px;margin:0.8rem auto 0;text-align:center;color:#555;font-size:0.95rem;line-height:1.6;">
+                <p style="margin:0 0 0.6rem;">Nuestros clientes confían en nosotros y dejan su opinión en Google.<br>Puedes consultar reseñas reales y verificadas directamente desde Google Maps.</p>
+                <p style="margin:0;font-weight:600;color:var(--color-primary);">Calidad, profesionalismo y confianza comprobada por quienes ya vivieron la experiencia.</p>
             </div>
             <div style="text-align:center; margin-top:0.6rem;">
-                <a href="https://www.google.com/maps?q=Ciudad+de+Mexico&z=10" target="_blank" rel="noopener noreferrer" class="btn btn-outline track-gtag" data-gtag-event="select_content" data-gtag-method="maps" data-gtag-label="map_google_maps" style="background:transparent; border:1px solid #ddd; padding:0.6rem 0.9rem; border-radius:8px;">Abrir en Google Maps</a>
+                <a href="https://www.google.com/maps?q=Ciudad+de+Mexico&z=10" target="_blank" rel="noopener noreferrer" class="btn btn-outline track-gtag map-open-btn" data-gtag-event="select_content" data-gtag-method="maps" data-gtag-label="map_google_maps" aria-label="Abrir en Google Maps">Abrir en Google Maps</a>
                 <p style="margin-top:0.6rem; color:#666; font-size:0.95rem;">Dirección aproximada: Ciudad de México. Para indicaciones, abre en Google Maps.</p>
             </div>
             <noscript>
@@ -992,6 +994,31 @@
         <style>
             .map-wrapper iframe { width:100%; height:100%; min-height:280px; aspect-ratio: 16/9; }
             @media (max-width:480px){ .map-wrapper iframe{ min-height:220px; } }
+
+            /* Estilos visuales para el botón de abrir Google Maps */
+            .map-open-btn{
+                display:inline-flex;
+                align-items:center;
+                gap:0.5rem;
+                background: linear-gradient(90deg, var(--color-gold,#b8935a) 0%, #ffd27a 100%);
+                color: #000;
+                border: none;
+                padding: 0.6rem 1rem;
+                border-radius: 10px;
+                box-shadow: 0 8px 24px rgba(26,26,26,0.08);
+                text-decoration: none;
+                font-weight: 600;
+                transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+            }
+            .map-open-btn:hover,
+            .map-open-btn:focus{
+                transform: translateY(-3px);
+                box-shadow: 0 14px 36px rgba(26,26,26,0.12);
+                opacity: 0.98;
+                outline: none;
+            }
+            .map-open-btn:active{ transform: translateY(0); }
+            @media (prefers-reduced-motion: reduce){ .map-open-btn{ transition: none; } .map-open-btn:hover{ transform:none; } }
         </style>
     </section>
 
