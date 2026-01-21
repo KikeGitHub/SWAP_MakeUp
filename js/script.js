@@ -25,8 +25,72 @@
     }
 
     // ===================================
+    // FACEBOOK PIXEL TRACKING SYSTEM
+    // Rastreo complementario para conversiones en Facebook
+    // ===================================
+
+    function sendFacebookEvent(eventName, data = {}) {
+        try {
+            if (typeof fbq === 'function') {
+                fbq('track', eventName, data);
+            }
+        } catch (e) {
+            console.debug('Facebook event not sent:', eventName);
+        }
+    }
+
+    // ===================================
+    // UNIFIED TRACKING FUNCTION
+    // Envía eventos a GA4 y Facebook simultáneamente
+    function sendTrackingEvent(eventType, method, label, value = null) {
+        // GA4 parameters
+        const gaParams = {
+            method: method,
+            content_type: 'cta',
+            content_id: label,
+            page_location: location.pathname
+        };
+        if (value !== null) gaParams.value = value;
+
+        // Mapeo de eventos para Facebook Pixel
+        const facebookEventMap = {
+            'generate_lead': {
+                name: 'Lead',
+                data: {
+                    content_name: label,
+                    content_type: 'lead'
+                }
+            },
+            'share': {
+                name: 'Contact',
+                data: {
+                    content_name: label,
+                    content_type: 'social_engagement'
+                }
+            },
+            'select_content': {
+                name: 'FindLocation',
+                data: {
+                    content_name: label,
+                    content_type: 'location'
+                }
+            }
+        };
+
+        // Enviar a GA4
+        sendGtagEvent(eventType, gaParams);
+
+        // Enviar a Facebook Pixel
+        if (facebookEventMap[eventType]) {
+            const fbEvent = facebookEventMap[eventType];
+            sendFacebookEvent(fbEvent.name, fbEvent.data);
+        }
+    }
+
+    // ===================================
     // RASTREO DE ELEMENTOS CON DATA-GTAG-*
     // Sistema genérico que funciona para WhatsApp, redes sociales, CTAs, etc.
+    // Envía eventos a GA4 y Facebook Pixel simultáneamente
     function initGtagTracking() {
         document.addEventListener('click', function (e) {
             const el = e.target.closest && e.target.closest('[data-gtag-event]');
@@ -36,21 +100,9 @@
             const method = el.dataset.gtagMethod || 'link';
             const label = el.dataset.gtagLabel || (el.textContent || '').trim().slice(0, 100);
             const value = el.dataset.gtagValue ? Number(el.dataset.gtagValue) : undefined;
-            const contentType = el.dataset.gtagContentType || 'cta';
-            const contentId = el.dataset.gtagContentId || label;
 
-            const params = {
-                method: method,
-                content_type: contentType,
-                content_id: contentId,
-                link_url: el.href || '',
-                page_location: location.pathname
-            };
-            
-            if (!isNaN(value)) params.value = value;
-
-            // Enviar evento a GA4
-            sendGtagEvent(eventName, params);
+            // Enviar evento a GA4 y Facebook Pixel
+            sendTrackingEvent(eventName, method, label, value);
 
             // Para links externos (no _blank), permitir navegación después del evento
             // Si es _blank, el evento se envía y se abre sin esperar
@@ -312,6 +364,14 @@
         // Show success message
         showNotification('Redirigiendo a WhatsApp...', 'success');
         
+        // Send conversion event to Facebook Pixel
+        sendFacebookEvent('Lead', {
+            content_name: serviceName,
+            content_type: 'service_booking',
+            value: 100, // estimated value
+            currency: 'MXN'
+        });
+        
         // Redirect to WhatsApp
         setTimeout(() => {
             window.open(`https://wa.me/525661430855?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
@@ -536,8 +596,20 @@
         // Set initial navbar state
         handleNavbarScroll();
         
-        // Initialize GA4 event tracking system
+        // Initialize GA4 and Facebook Pixel event tracking system
         initGtagTracking();
+        
+        // Track gallery opens for Facebook Pixel
+        if (galleryItems && galleryItems.length > 0) {
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    sendFacebookEvent('ViewContent', {
+                        content_name: 'gallery_item_' + (index + 1),
+                        content_type: 'gallery'
+                    });
+                });
+            });
+        }
     }
 
     // ===================================
