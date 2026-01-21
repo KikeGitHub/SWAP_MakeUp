@@ -40,8 +40,38 @@
     }
 
     // ===================================
+    // TIKTOK PIXEL TRACKING SYSTEM
+    // Rastreo complementario para conversiones en TikTok
+    // ===================================
+
+    function sendTikTokEvent(eventName, data = {}) {
+        try {
+            if (typeof ttq === 'object' && ttq.track) {
+                ttq.track(eventName, data);
+            }
+        } catch (e) {
+            console.debug('TikTok event not sent:', eventName);
+        }
+    }
+
+    // ===================================
+    // PINTEREST PIXEL TRACKING SYSTEM
+    // Rastreo complementario para conversiones en Pinterest
+    // ===================================
+
+    function sendPinterestEvent(eventName, data = {}) {
+        try {
+            if (typeof pintrk === 'function') {
+                pintrk('track', eventName, data);
+            }
+        } catch (e) {
+            console.debug('Pinterest event not sent:', eventName);
+        }
+    }
+
+    // ===================================
     // UNIFIED TRACKING FUNCTION
-    // Envía eventos a GA4 y Facebook simultáneamente
+    // Envía eventos a GA4, Facebook y TikTok simultáneamente
     function sendTrackingEvent(eventType, method, label, value = null) {
         // GA4 parameters
         const gaParams = {
@@ -77,6 +107,58 @@
             }
         };
 
+        // Mapeo de eventos para TikTok Pixel
+        const tikTokEventMap = {
+            'generate_lead': {
+                name: 'Contact',
+                data: {
+                    content_name: label,
+                    content_type: 'lead'
+                }
+            },
+            'share': {
+                name: 'Contact',
+                data: {
+                    content_name: label,
+                    content_type: 'social'
+                }
+            },
+            'select_content': {
+                name: 'ViewContent',
+                data: {
+                    content_name: label,
+                    content_type: 'location'
+                }
+            }
+        };
+
+        // Mapeo de eventos para Pinterest Pixel
+        const pinterestEventMap = {
+            'generate_lead': {
+                name: 'checkout',
+                data: {
+                    value: value || 0,
+                    currency: 'MXN',
+                    content_name: label,
+                    content_type: 'product'
+                }
+            },
+            'share': {
+                name: 'pin',
+                data: {
+                    content_name: label,
+                    content_type: 'social'
+                }
+            },
+            'select_content': {
+                name: 'viewcategory',
+                data: {
+                    content_name: label,
+                    content_type: 'category'
+                }
+            }
+        };
+
         // Enviar a GA4
         sendGtagEvent(eventType, gaParams);
 
@@ -85,12 +167,24 @@
             const fbEvent = facebookEventMap[eventType];
             sendFacebookEvent(fbEvent.name, fbEvent.data);
         }
+
+        // Enviar a TikTok Pixel
+        if (tikTokEventMap[eventType]) {
+            const ttEvent = tikTokEventMap[eventType];
+            sendTikTokEvent(ttEvent.name, ttEvent.data);
+        }
+
+        // Enviar a Pinterest Pixel
+        if (pinterestEventMap[eventType]) {
+            const pEvent = pinterestEventMap[eventType];
+            sendPinterestEvent(pEvent.name, pEvent.data);
+        }
     }
 
     // ===================================
     // RASTREO DE ELEMENTOS CON DATA-GTAG-*
     // Sistema genérico que funciona para WhatsApp, redes sociales, CTAs, etc.
-    // Envía eventos a GA4 y Facebook Pixel simultáneamente
+    // Envía eventos a GA4, Facebook, TikTok y Pinterest simultáneamente
     function initGtagTracking() {
         document.addEventListener('click', function (e) {
             const el = e.target.closest && e.target.closest('[data-gtag-event]');
