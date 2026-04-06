@@ -195,6 +195,79 @@ ul {
 }
 
 /* ===================================
+   PROMO BAR
+   =================================== */
+.promo-bar {
+    position: fixed;
+    top: 165px; /* Un poco más de espacio respecto a social links */
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-secondary) 100%);
+    color: var(--color-white);
+    z-index: 998; /* Un poco menor que navbar para que no lo cubra si colisionan */
+    padding: 0.8rem 0; /* Mayor padding para más presencia */
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-fast);
+}
+
+.promo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+}
+
+.promo-text {
+    font-size: 1.05rem; /* Ligeramente más grande */
+    font-weight: 600; /* Letras más gruesas */
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    letter-spacing: 0.2px; /* Más elegante */
+}
+
+.promo-btn {
+    background-color: #25D366; /* WhatsApp Green */
+    color: #ffffff;
+    padding: 0.5rem 1.4rem; /* Botón más sustancial */
+    border-radius: 20px;
+    font-size: 0.95rem; /* Botón más visible */
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.promo-btn:hover {
+    background-color: #128C7E; /* WhatsApp Darker Green */
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .promo-container {
+        gap: 0.6rem;
+        padding: 0 1rem;
+    }
+    .promo-text {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .promo-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ===================================
    NAVIGATION
    =================================== */
 .navbar {
@@ -371,6 +444,11 @@ ul {
     transform: rotate(360deg);
 }
 
+/* Promo Bar ajustada para estar por debajo de social links */
+.navbar.scrolled ~ .promo-bar {
+    top: 150px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .social-links-top {
@@ -380,6 +458,13 @@ ul {
     
     .navbar.scrolled ~ .social-links-top {
         top: 60px;
+    }
+    
+    .promo-bar {
+        top: 145px;
+    }
+    .navbar.scrolled ~ .promo-bar {
+        top: 135px;
     }
     
     .social-label {
@@ -397,7 +482,7 @@ ul {
     }
     
     .hero {
-        padding-top: 130px;
+        padding-top: 150px; /* Balanceado para arreglar el amontonamiento del scroll indicator */
     }
 }
 
@@ -410,6 +495,13 @@ ul {
         top: 55px;
     }
     
+    .promo-bar {
+        top: 175px;
+    }
+    .navbar.scrolled ~ .promo-bar {
+        top: 165px;
+    }
+    
     .social-links-wrapper {
         flex-direction: column;
         gap: 0.8rem;
@@ -420,7 +512,7 @@ ul {
     }
     
     .hero {
-        padding-top: 160px;
+        padding-top: 180px; /* Balanceado para arreglar el amontonamiento del scroll indicator */
     }
 }
 
@@ -430,7 +522,7 @@ ul {
 .hero {
     position: relative;
     height: 100vh;
-    min-height: 700px;
+    min-height: 800px; /* Incrementado para dar más espacio vertical en pantallas pequeñas */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -439,7 +531,7 @@ ul {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding-top: 140px;
+    padding-top: 160px; /* Balanceado para arreglar el amontonamiento del scroll indicator */
     overflow: hidden;
 }
 
