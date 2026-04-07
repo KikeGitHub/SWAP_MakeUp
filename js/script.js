@@ -1,6 +1,6 @@
 /* ===================================
    Marian Angeles - Main JavaScript
-   Author: Marian Angeles
+   Author: Enrique Duran
    Version: 1.0
    =================================== */
 
@@ -628,6 +628,38 @@
     }
 
     // ===================================
+    // FAQ ACCORDION
+    // ===================================
+    function initFaqAccordion() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        if (!faqItems.length) return;
+
+        faqItems.forEach(function(item) {
+            const btn = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            if (!btn || !answer) return;
+
+            btn.addEventListener('click', function() {
+                const isOpen = item.classList.contains('is-open');
+
+                // Close all items
+                faqItems.forEach(function(el) {
+                    el.classList.remove('is-open');
+                    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    el.querySelector('.faq-answer').hidden = true;
+                });
+
+                // Toggle clicked item
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    answer.hidden = false;
+                }
+            });
+        });
+    }
+
+    // ===================================
     // INITIALIZE ALL FUNCTIONS
     // ===================================
     function init() {
@@ -692,6 +724,9 @@
         
         // Initialize GA4 and Facebook Pixel event tracking system
         initGtagTracking();
+        
+        // Initialize FAQ accordion
+        initFaqAccordion();
         
         // Track gallery opens for Facebook Pixel
         if (galleryItems && galleryItems.length > 0) {
