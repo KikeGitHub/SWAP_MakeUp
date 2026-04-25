@@ -260,6 +260,6 @@ Este proyecto está diseñado para uso personal y comercial de Marian Angeles.
 
 ---
 
-**Desarrollado con 💄 para Marian Angeles**
+**Desarrollado con amor para Marian Angeles de Enrique Durán**
 
 *Versión 1.0 - Diciembre 2025*
