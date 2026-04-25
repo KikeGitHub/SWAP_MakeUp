@@ -15,42 +15,65 @@
     <meta property="og:description" content="Descubre la zona ideal para tu servicio de maquillaje y peinado profesional a domicilio.">
     <meta property="og:image" content="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1768620729/about-photo_ncah4k.jpg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      :root { --bg:#f8f5f1; --card:#ffffff; --text:#2b2b2b; --muted:#636363; --accent:#a67c52; --dark:#1e1e1e; }
-      * { box-sizing: border-box; }
-      body { margin:0; font-family: Poppins, Arial, sans-serif; background:var(--bg); color:var(--text); }
-      .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
-      .hero { background: linear-gradient(135deg,#ffffff 0%,#efe3d5 100%); border:1px solid rgba(166,124,82,.25); border-radius: 16px; padding: 28px; }
-      h1, h2 { font-family: "Playfair Display", Georgia, serif; }
-      h1 { margin:0 0 12px; font-size: clamp(1.7rem,3vw,2.5rem); }
-      h2 { margin:0 0 10px; font-size:1.45rem; }
-      p { color:var(--muted); line-height:1.75; margin:0 0 14px; }
-      .zones { margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
-      .zone { background:var(--card); border:1px solid rgba(166,124,82,.24); border-radius:12px; padding:16px; text-decoration:none; color:inherit; }
-      .zone strong { display:block; margin-bottom:6px; color:var(--dark); }
-      .cta { display:inline-block; margin-top: 10px; background: var(--dark); color:#fff; text-decoration:none; padding:11px 18px; border-radius: 10px; font-weight:600; }
+      :root{--bg:#F5EBE0;--card:#fff;--text:#2c2c2c;--muted:#5f5f5f;--accent:#A67C52;--gold:#D4AF37;--dark:#1e1e1e;--wa:#25D366;--r:14px;--shadow:0 4px 20px rgba(0,0,0,.10)}
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text)}
+      a{text-decoration:none}
+      .topbar{background:#fff;border-bottom:1px solid rgba(166,124,82,.18);padding:14px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:0}
+      .topbar-brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);letter-spacing:-.02em}
+      .btn-wa-top{display:inline-flex;align-items:center;gap:7px;background:var(--wa);color:#fff!important;font-weight:600;font-size:.875rem;padding:9px 20px;border-radius:50px;transition:background .25s,transform .2s;box-shadow:0 3px 12px rgba(37,211,102,.3)}
+      .btn-wa-top:hover{background:#1ebe57;transform:translateY(-1px)}
+      .wrap{max-width:1040px;margin:0 auto;padding:36px 24px 60px}
+      .hero{background:linear-gradient(135deg,#fff 0%,#F5EBE0 100%);border:1px solid rgba(166,124,82,.22);border-left:5px solid var(--gold);border-radius:var(--r);padding:36px;margin-bottom:28px;box-shadow:var(--shadow)}
+      h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--dark);line-height:1.25;margin-bottom:14px}
+      h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--dark);margin-bottom:16px}
+      p{line-height:1.8;color:var(--muted);margin-bottom:16px}
+      .btn-back{display:inline-flex;align-items:center;gap:8px;background:var(--dark);color:#fff;font-weight:600;font-size:.9rem;padding:10px 22px;border-radius:50px;margin-top:8px;transition:background .25s,transform .2s}
+      .btn-back:hover{background:#444;transform:translateY(-1px)}
+      .zones-section{margin-top:28px}
+      .zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+      .zone{background:var(--card);border:1px solid rgba(166,124,82,.2);border-left:4px solid var(--gold);border-radius:var(--r);padding:20px;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+      .zone:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.14)}
+      .zone strong{display:block;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--dark);margin-bottom:8px}
+      .zone span{font-size:.9rem;color:var(--muted);line-height:1.6}
+      .zone-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+      .site-footer{margin-top:48px;border-top:1px solid rgba(166,124,82,.2);padding-top:20px;text-align:center;color:var(--muted);font-size:.82rem}
+      .site-footer a{color:var(--accent);font-weight:600}
     </style>
 </head>
 <body>
+  <div class="topbar">
+    <a class="topbar-brand" href="../index.html">Marian Angeles</a>
+    <a class="btn-wa-top" href="https://wa.me/525661430855?text=Hola%20quiero%20cotizar%20servicio%20de%20maquillaje" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Agendar por WhatsApp</a>
+  </div>
   <div class="wrap">
     <section class="hero">
       <h1>Guia de maquillaje profesional por zonas</h1>
       <p>Elegir maquillista por zona mejora tiempos, puntualidad y resultados, especialmente cuando el evento tiene logistica compleja. Esta guia te ayuda a encontrar la pagina adecuada segun tu ubicacion para recibir una cotizacion mas precisa y un servicio diseñado para tu tipo de evento.</p>
       <p>Cada zona tiene una landing SEO con informacion local, enfoque en bodas y eventos, y recomendaciones sobre servicio a domicilio. Esto facilita que Google relacione mejor la busqueda geografica de tus clientas con una pagina especifica de alta relevancia.</p>
-      <a class="cta" href="../">Volver al inicio</a>
+      <a class="btn-back" href="../index.html"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
     </section>
 
-    <section style="margin-top:22px;">
+    <section class="zones-section">
       <h2>Zonas disponibles</h2>
       <div class="zones">
-        <a class="zone" href="../metepec/"><strong>Metepec</strong><span>Maquillaje profesional a domicilio para bodas y eventos sociales.</span></a>
-        <a class="zone" href="../valle-de-bravo/"><strong>Valle de Bravo</strong><span>Maquillaje para bodas de destino en locaciones premium.</span></a>
-        <a class="zone" href="../morelos/"><strong>Morelos</strong><span>Servicio especializado para bodas, sesiones y eventos.</span></a>
-        <a class="zone" href="../santa-fe/"><strong>Santa Fe CDMX</strong><span>Maquillaje profesional para eventos sociales y corporativos.</span></a>
-        <a class="zone" href="../cuernavaca/"><strong>Cuernavaca</strong><span>Maquillista a domicilio con enfoque en clima y duracion.</span></a>
-        <a class="zone" href="../tepoztlan/"><strong>Tepoztlan</strong><span>Maquillaje para bodas y eventos de destino.</span></a>
+        <a class="zone" href="../metepec/index.html"><strong>Metepec</strong><span>Maquillaje profesional a domicilio para bodas y eventos sociales.</span><span class="zone-arrow">Ver zona <i class="fas fa-arrow-right"></i></span></a>
+        <a class="zone" href="../valle-de-bravo/index.html"><strong>Valle de Bravo</strong><span>Maquillaje para bodas de destino en locaciones premium.</span><span class="zone-arrow">Ver zona <i class="fas fa-arrow-right"></i></span></a>
+        <a class="zone" href="../morelos/index.html"><strong>Morelos</strong><span>Servicio especializado para bodas, sesiones y eventos.</span><span class="zone-arrow">Ver zona <i class="fas fa-arrow-right"></i></span></a>
+        <a class="zone" href="../santa-fe/index.html"><strong>Santa Fe CDMX</strong><span>Maquillaje profesional para eventos sociales y corporativos.</span><span class="zone-arrow">Ver zona <i class="fas fa-arrow-right"></i></span></a>
+        <a class="zone" href="../cuernavaca/index.html"><strong>Cuernavaca</strong><span>Maquillista a domicilio con enfoque en clima y duración.</span><span class="zone-arrow">Ver zona <i class="fas fa-arrow-right"></i></span></a>
+        <a class="zone" href="../tepoztlan/index.html"><strong>Tepoztlan</strong><span>Maquillaje para bodas y eventos de destino.</span><span class="zone-arrow">Ver zona <i class="fas fa-arrow-right"></i></span></a>
       </div>
     </section>
+    <footer class="site-footer">
+      &copy; 2025 Marian Angeles &mdash; Maquillista profesional a domicilio &bull;
+      <a href="../index.html">Inicio</a> &bull;
+      <a href="https://wa.me/525661430855" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </footer>
   </div>
 </body>
 </html>

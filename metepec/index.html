@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maquillaje Profesional en Metepec | Maquillista a Domicilio</title>
-    <meta name="description" content="Maquillaje profesional a domicilio en Metepec para bodas y eventos. Servicio personalizado con look de larga duracion.">
+    <meta name="description" content="Maquillaje profesional a domicilio en Metepec para bodas y eventos. Servicio personalizado con look de larga duraciÃ³n.">
     <meta name="keywords" content="maquillaje profesional en metepec, maquillista a domicilio metepec, maquillaje para bodas metepec, makeup artist metepec">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="MX-MEX">
@@ -44,58 +44,79 @@
     }
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      :root { --bg:#f8f5f1; --card:#ffffff; --text:#2c2c2c; --muted:#5f5f5f; --accent:#a67c52; --dark:#1e1e1e; }
-      * { box-sizing:border-box; }
-      body { margin:0; font-family: Poppins, Arial, sans-serif; color:var(--text); background:var(--bg); }
-      .wrap { max-width: 1040px; margin:0 auto; padding: 24px; }
-      .top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
-      .top a { color:var(--dark); text-decoration:none; font-weight:600; }
-      .hero { background:linear-gradient(135deg, #fff, #f3e8dc); border:1px solid rgba(166,124,82,.25); border-radius:16px; padding:28px; }
-      h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.7rem, 3vw, 2.4rem); margin:0 0 10px; }
-      h2 { font-family: "Playfair Display", Georgia, serif; font-size:1.5rem; margin:0 0 12px; }
-      p { line-height:1.75; color:var(--muted); margin: 0 0 14px; }
-      .cta { display:inline-block; margin-top: 6px; background:var(--dark); color:#fff; text-decoration:none; padding:11px 18px; border-radius:10px; font-weight:600; }
-      .grid { margin-top:20px; display:grid; grid-template-columns:1.2fr .8fr; gap:16px; }
-      .card { background:var(--card); border:1px solid rgba(166,124,82,.2); border-radius:14px; padding:20px; }
-      .cover { width:100%; border-radius:12px; height:100%; min-height:220px; object-fit:cover; }
-      .zones { margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
-      .zones a { text-decoration:none; color:var(--dark); font-weight:600; background:#fff; border:1px solid rgba(166,124,82,.25); border-radius:8px; padding:10px; text-align:center; }
-      @media (max-width: 860px){ .grid{ grid-template-columns:1fr; } }
+      :root{--bg:#F5EBE0;--card:#fff;--text:#2c2c2c;--muted:#5f5f5f;--accent:#A67C52;--gold:#D4AF37;--dark:#1e1e1e;--wa:#25D366;--r:14px;--shadow:0 4px 20px rgba(0,0,0,.10)}
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text)}
+      a{text-decoration:none}
+      .wrap{max-width:1040px;margin:0 auto;padding:36px 24px 60px}
+      .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 0 22px;border-bottom:1px solid rgba(166,124,82,.18);margin-bottom:28px}
+      .top>a:first-child{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);letter-spacing:-.02em}
+      .btn-wa-top{display:inline-flex;align-items:center;gap:7px;background:var(--wa);color:#fff!important;font-weight:600;font-size:.875rem;padding:9px 20px;border-radius:50px;transition:background .25s,transform .2s;box-shadow:0 3px 12px rgba(37,211,102,.3)}
+      .btn-wa-top:hover{background:#1ebe57;transform:translateY(-1px)}
+      .hero{background:linear-gradient(135deg,#fff 0%,#F5EBE0 100%);border:1px solid rgba(166,124,82,.22);border-left:5px solid var(--gold);border-radius:var(--r);padding:36px;margin-bottom:28px;box-shadow:var(--shadow)}
+      h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--dark);line-height:1.25;margin-bottom:14px}
+      h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--dark);margin-bottom:12px}
+      p{line-height:1.8;color:var(--muted);margin-bottom:16px}
+      article.card p{text-align:justify}
+      .btn-wa-cta{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:1rem;padding:13px 26px;border-radius:50px;margin-top:8px;transition:background .25s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(37,211,102,.4)}
+      .btn-wa-cta:hover{background:#1ebe57;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.5)}
+      .btn-wa-cta i{font-size:1.2rem}
+      .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-bottom:28px}
+      .card{background:var(--card);border:1px solid rgba(166,124,82,.18);border-radius:var(--r);padding:28px;box-shadow:var(--shadow)}
+      .cover{width:100%;height:100%;min-height:240px;object-fit:cover;border-radius:10px;display:block}
+      .zones-label{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--dark);margin-bottom:14px;font-weight:700}
+      .zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px}
+      .zones a{background:#fff;border:1px solid rgba(166,124,82,.28);border-radius:10px;padding:12px 10px;text-align:center;font-weight:600;font-size:.9rem;color:var(--dark);transition:background .2s,color .2s,transform .15s,box-shadow .2s}
+      .zones a:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 12px rgba(212,175,55,.35)}
+      .site-footer{margin-top:48px;border-top:1px solid rgba(166,124,82,.2);padding:20px 0 10px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:.85rem}
+      .site-footer a{color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+      .site-footer a:hover{color:var(--dark)}
+      .site-footer .sep{opacity:.4;padding:0 2px}
+      @medÃ­a(max-width:860px){.grid{grid-template-columns:1fr}.hero{padding:24px}}
     </style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
-      <a href="../">Marian Angeles</a>
-      <a data-zone-contact="top_whatsapp" href="https://wa.me/525661430855?text=Hola%20quiero%20agendar%20maquillaje%20en%20Metepec" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+      <a href="../index.html">Marian Angeles</a>
+      <a class="btn-wa-top" data-zone-contact="top_whatsapp" href="https://wa.me/525661430855?text=Hola%20quiero%20agendar%20maquillaje%20en%20Metepec" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Agendar por WhatsApp</a>
     </div>
 
     <section class="hero">
       <h1>Maquillaje profesional en Metepec</h1>
-      <p>Servicio especializado de maquillaje y peinado a domicilio para novias, graduaciones y eventos sociales en Metepec. Cada look se diseña con base en tu tipo de piel, horario del evento y estilo personal para lograr un resultado elegante, fotogenico y durable.</p>
-      <a class="cta" data-zone-contact="hero_cta" href="https://wa.me/525661430855?text=Hola%20quiero%20cotizar%20maquillaje%20profesional%20en%20Metepec" target="_blank" rel="noopener">Cotizar en Metepec</a>
+      <p>Servicio especializado de maquillaje y peinado a domicilio para novias, graduaciones y eventos sociales en Metepec. Cada look se diseña con base en tu tipo de piel, horario del evento y estilo personal para lograr un resultado elegante, fotogénico y durable.</p>
+      <a class="btn-wa-cta" data-zone-contact="hero_cta" href="https://wa.me/525661430855?text=Hola%20quiero%20cotizar%20maquillaje%20profesional%20en%20Metepec" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar en Metepec</a>
     </section>
 
     <div class="grid">
       <article class="card">
         <h2>Maquillista a domicilio en Metepec para bodas y eventos</h2>
-        <p>Trabajar en Metepec requiere puntualidad, tecnica y adaptacion al tipo de evento, ya sea una boda de dia en salon, una ceremonia civil en jardin o una recepcion de noche. El servicio esta pensado para que tengas tranquilidad total: llego con kit profesional, preparo la piel con skincare previo y aplico productos de alta fijacion para resistir traslados, clima y fotografia con flash.</p>
-        <p>Si tu evento es de larga duracion, tambien puedes solicitar retoque estrategico para mantener el acabado impecable durante las horas clave. En novias, el objetivo es equilibrar sofisticacion y naturalidad para que te reconozcas en el espejo y en cada foto. En maquillaje social, se diseña un look favorecedor que combine con vestuario, peinado y tipo de iluminacion del lugar. Esta atencion personalizada es la razon por la que cada vez mas clientas buscan maquillista a domicilio en Metepec con enfoque profesional.</p>
+        <p>Trabajar en Metepec requiere puntualidad, técnica y adaptación al tipo de evento, ya sea una boda de día en salón, una ceremonia civil en jardín o una recepción de noche.</p>
+        <p>El servicio está pensado para que tengas tranquilidad total: llego con kit profesional, preparo la piel con skincare previo y aplico productos de alta fijación para resistir traslados, clima y fotografía con flash.</p>
+        <p>Si tu evento es de larga duración, también puedes solicitar retoque estratégico para mantener el acabado impecable durante las horas clave. En novias, el objetivo es equilibrar sofisticación y naturalidad para que te reconozcas en el espejo y en cada foto.</p>
+        <p>En maquillaje social, se diseña un look favorecedor que combine con vestuario, peinado y tipo de iluminación del lugar. Esta atención personalizada es la razón por la que cada vez más clientas buscan maquillista a domicilio en Metepec con enfoque profesional.</p>
       </article>
       <aside class="card">
         <img class="cover" src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1024/v1768620729/about-photo_ncah4k.jpg" alt="Maquillaje profesional a domicilio en Metepec">
       </aside>
     </div>
 
+    <p class="zones-label"><i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:6px;"></i>Otras zonas de servicio</p>
     <nav class="zones" aria-label="Otras zonas de servicio">
-      <a href="../valle-de-bravo/">Valle de Bravo</a>
-      <a href="../morelos/">Morelos</a>
-      <a href="../santa-fe/">Santa Fe CDMX</a>
-      <a href="../cuernavaca/">Cuernavaca</a>
-      <a href="../tepoztlan/">Tepoztlan</a>
-      <a href="../">Inicio</a>
+      <a href="../valle-de-bravo/index.html">Valle de Bravo</a>
+      <a href="../morelos/index.html">Morelos</a>
+      <a href="../santa-fe/index.html">Santa Fe CDMX</a>
+      <a href="../cuernavaca/index.html">Cuernavaca</a>
+      <a href="../tepoztlan/index.html">Tepoztlan</a>
     </nav>
+
+    <footer class="site-footer">
+      <span>&copy; 2025 Marian Angeles</span><span class="sep"> | </span><a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span class="sep"> | </span><a href="https://wa.me/525661430855" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </footer>
   </div>
   <script>
     (function() {

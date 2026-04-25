@@ -614,10 +614,9 @@ ul {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-nude-base) 100%);
-    background-image: url('../img/about-photo.jpeg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     padding-top: 160px; /* Balanceado para arreglar el amontonamiento del scroll indicator */
     overflow: hidden;
 }
@@ -1302,6 +1301,60 @@ ul {
 }
 
 .footer-links a:hover {
+    color: var(--color-gold);
+    padding-left: 5px;
+}
+
+/* Footer zone collapsible submenu */
+.footer-zone-details {
+    width: 100%;
+}
+
+.footer-zone-details summary {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.footer-zone-details summary::-webkit-details-marker { display: none; }
+.footer-zone-details summary::marker { display: none; }
+
+.footer-zone-details summary:hover {
+    color: var(--color-gold);
+    padding-left: 5px;
+}
+
+.footer-chevron {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.footer-zone-details[open] .footer-chevron {
+    transform: rotate(180deg);
+}
+
+.footer-submenu {
+    margin-top: 0.6rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid rgba(212, 175, 55, 0.35);
+}
+
+.footer-submenu li {
+    margin-bottom: 0.5rem !important;
+}
+
+.footer-submenu a {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-submenu a:hover {
     color: var(--color-gold);
     padding-left: 5px;
 }
