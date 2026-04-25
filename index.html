@@ -142,9 +142,11 @@
                 "Hidalgo",
                 "Pachuca",
                 "Metepec",
+                "Valle de Bravo",
                 "Puebla",
                 "Morelos",
-                "Cuernavaca"
+                "Cuernavaca",
+                "Tepoztlán"
             ],
             "priceRange": "$$",
             "openingHoursSpecification": [{
@@ -242,7 +244,7 @@
     <!-- Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="css/fa-font-display.css">
+    <link rel="stylesheet" href="css/fa-font-display.min.css?v=1">
     
     <!-- Stylesheet -->
     <!-- Preload hero and key images to improve LCP (non-intrusive) -->
@@ -257,8 +259,9 @@
             .main-title{font-family:var(--font-secondary);font-size:5rem;font-weight:700;letter-spacing:2px;line-height:1.1}
             .hero-description{font-size:1.25rem;margin:2rem auto;max-width:600px;opacity:.9;color:var(--hero-text-color, #333333)}
         </style>
-    <link rel="stylesheet" href="css/styles.css?v=2">
-    <link rel="stylesheet" href="css/inline-styles.css?v=2">
+    <link rel="stylesheet" href="css/styles.min.css?v=1">
+    <link rel="stylesheet" href="css/inline-styles.min.css?v=1">
+    <link rel="stylesheet" href="css/index-extracted.min.css?v=1">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -361,6 +364,47 @@
         </div>
         <div class="scroll-indicator">
             <span></span>
+        </div>
+    </section>
+
+    <!-- SEO Local Pages Hub -->
+    <section class="seo-local-hub" style="padding: 60px 0; background: var(--color-light-gray);">
+        <div class="container">
+            <div style="max-width: 980px; margin: 0 auto; text-align: center;">
+                <span class="section-label">SEO Geografico</span>
+                <h2 class="section-title" style="margin-bottom: 1rem;">Maquillaje Profesional Por Zona</h2>
+                <p style="font-size: 1rem; line-height: 1.7; color: var(--color-gray); margin-bottom: 2rem;">
+                    Si buscas un servicio especializado por ubicacion, visita nuestras paginas locales optimizadas para Google.
+                    Encontraras informacion especifica por zona, cobertura a domicilio y disponibilidad para bodas y eventos.
+                </p>
+                <p style="margin-top: -1rem; margin-bottom: 2rem;">
+                    <a href="/maquillaje-por-zonas/" style="font-weight: 600; color: var(--color-primary);">Ver guia completa de maquillaje por zonas</a>
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; text-align: left; margin-bottom: 2rem;">
+                    <a href="/valle-de-bravo/" style="display:block; text-decoration:none; background:#fff; border:1px solid rgba(166,124,82,.25); border-left:4px solid var(--color-gold); border-radius:10px; padding:1rem; box-shadow:var(--shadow-sm);">
+                        <h3 style="font-family:'Playfair Display', serif; font-size:1.05rem; color:var(--color-primary); margin-bottom:0.45rem;">Maquillaje para bodas en Valle de Bravo</h3>
+                        <p style="font-size:0.9rem; color:#666; line-height:1.55;">Looks de larga duracion para bodas de destino y eventos premium en Valle de Bravo.</p>
+                    </a>
+                    <a href="/cuernavaca/" style="display:block; text-decoration:none; background:#fff; border:1px solid rgba(166,124,82,.25); border-left:4px solid var(--color-gold); border-radius:10px; padding:1rem; box-shadow:var(--shadow-sm);">
+                        <h3 style="font-family:'Playfair Display', serif; font-size:1.05rem; color:var(--color-primary); margin-bottom:0.45rem;">Maquillista a domicilio en Cuernavaca</h3>
+                        <p style="font-size:0.9rem; color:#666; line-height:1.55;">Servicio profesional a domicilio para novias, invitadas y eventos sociales.</p>
+                    </a>
+                    <a href="/santa-fe/" style="display:block; text-decoration:none; background:#fff; border:1px solid rgba(166,124,82,.25); border-left:4px solid var(--color-gold); border-radius:10px; padding:1rem; box-shadow:var(--shadow-sm);">
+                        <h3 style="font-family:'Playfair Display', serif; font-size:1.05rem; color:var(--color-primary); margin-bottom:0.45rem;">Maquillaje profesional en Santa Fe CDMX</h3>
+                        <p style="font-size:0.9rem; color:#666; line-height:1.55;">Atencion puntual y personalizada para eventos corporativos, sociales y bodas.</p>
+                    </a>
+                </div>
+
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.65rem;">
+                    <a class="track-gtag" data-gtag-event="select_content" data-gtag-method="internal_link" data-gtag-label="seo_zone_metepec" href="/metepec/" style="text-decoration:none; color:var(--color-primary); background:var(--color-beige); border:1px solid rgba(166,124,82,.22); border-radius:8px; padding:.65rem .75rem; font-weight:600;">Metepec</a>
+                    <a class="track-gtag" data-gtag-event="select_content" data-gtag-method="internal_link" data-gtag-label="seo_zone_valle" href="/valle-de-bravo/" style="text-decoration:none; color:var(--color-primary); background:var(--color-beige); border:1px solid rgba(166,124,82,.22); border-radius:8px; padding:.65rem .75rem; font-weight:600;">Valle de Bravo</a>
+                    <a class="track-gtag" data-gtag-event="select_content" data-gtag-method="internal_link" data-gtag-label="seo_zone_morelos" href="/morelos/" style="text-decoration:none; color:var(--color-primary); background:var(--color-beige); border:1px solid rgba(166,124,82,.22); border-radius:8px; padding:.65rem .75rem; font-weight:600;">Morelos</a>
+                    <a class="track-gtag" data-gtag-event="select_content" data-gtag-method="internal_link" data-gtag-label="seo_zone_santafe" href="/santa-fe/" style="text-decoration:none; color:var(--color-primary); background:var(--color-beige); border:1px solid rgba(166,124,82,.22); border-radius:8px; padding:.65rem .75rem; font-weight:600;">Santa Fe CDMX</a>
+                    <a class="track-gtag" data-gtag-event="select_content" data-gtag-method="internal_link" data-gtag-label="seo_zone_cuernavaca" href="/cuernavaca/" style="text-decoration:none; color:var(--color-primary); background:var(--color-beige); border:1px solid rgba(166,124,82,.22); border-radius:8px; padding:.65rem .75rem; font-weight:600;">Cuernavaca</a>
+                    <a class="track-gtag" data-gtag-event="select_content" data-gtag-method="internal_link" data-gtag-label="seo_zone_tepoztlan" href="/tepoztlan/" style="text-decoration:none; color:var(--color-primary); background:var(--color-beige); border:1px solid rgba(166,124,82,.22); border-radius:8px; padding:.65rem .75rem; font-weight:600;">Tepoztlan</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -829,43 +873,6 @@
             </div>
         </div>
         
-        <style>
-            @media (min-width: 1200px) {
-                .services-grid {
-                    grid-template-columns: repeat(4, 1fr) !important;
-                }
-            }
-            
-            @media (min-width: 768px) and (max-width: 1199px) {
-                .services-grid {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                }
-            }
-            
-            @media (max-width: 767px) {
-                .services-grid {
-                    grid-template-columns: 1fr !important;
-                    gap: 1rem !important;
-                }
-                .service-card {
-                    padding: 1.2rem !important;
-                }
-            }
-            
-            .services-grid {
-                align-items: stretch !important;
-            }
-            
-            .service-card {
-                display: flex !important;
-                flex-direction: column !important;
-            }
-            
-            .service-features {
-                flex-grow: 1 !important;
-            }
-        </style>
-        
 
     </section>
 
@@ -1055,7 +1062,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Teléfono</h4>
-                            <p></p>+52 56 6143 0855</p>
+                            <p>+52 56 6143 0855</p>
                         </div>
                     </div>
                     
@@ -1206,35 +1213,6 @@
                 </div>
             </noscript>
         </div>
-        <style>
-            .map-wrapper iframe { width:100%; height:100%; min-height:280px; aspect-ratio: 16/9; }
-            @media (max-width:480px){ .map-wrapper iframe{ min-height:220px; } }
-
-            /* Estilos visuales para el botón de abrir Google Maps */
-            .map-open-btn{
-                display:inline-flex;
-                align-items:center;
-                gap:0.5rem;
-                background: linear-gradient(90deg, var(--color-gold,#b8935a) 0%, #ffd27a 100%);
-                color: #000;
-                border: none;
-                padding: 0.6rem 1rem;
-                border-radius: 10px;
-                box-shadow: 0 8px 24px rgba(26,26,26,0.08);
-                text-decoration: none;
-                font-weight: 600;
-                transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
-            }
-            .map-open-btn:hover,
-            .map-open-btn:focus{
-                transform: translateY(-3px);
-                box-shadow: 0 14px 36px rgba(26,26,26,0.12);
-                opacity: 0.98;
-                outline: none;
-            }
-            .map-open-btn:active{ transform: translateY(0); }
-            @media (prefers-reduced-motion: reduce){ .map-open-btn{ transition: none; } .map-open-btn:hover{ transform:none; } }
-        </style>
     </section>
 
     <!-- Service Areas Section -->
@@ -1290,6 +1268,13 @@
                         <li><a href="#about">Sobre Mí</a></li>
                         <li><a href="#gallery">Galería</a></li>
                         <li><a href="#services">Servicios</a></li>
+                        <li><a href="/metepec/">Maquillaje en Metepec</a></li>
+                        <li><a href="/valle-de-bravo/">Maquillaje en Valle de Bravo</a></li>
+                        <li><a href="/morelos/">Maquillaje en Morelos</a></li>
+                        <li><a href="/santa-fe/">Maquillaje en Santa Fe CDMX</a></li>
+                        <li><a href="/cuernavaca/">Maquillista en Cuernavaca</a></li>
+                        <li><a href="/tepoztlan/">Maquillaje en Tepoztlán</a></li>
+                        <li><a href="/maquillaje-por-zonas/">Guia de maquillaje por zonas</a></li>
                     </ul>
                 </div>
                 
@@ -1344,85 +1329,8 @@
         <img src="" alt="Gallery Image" id="modalImage">
     </div>
 
-    <!-- Responsive Styles for Mobile -->
-    <style>
-        @media (max-width: 768px) {
-            /* Contact Form - Hacer columnas verticales en móvil */
-            .contact-form > div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-            }
-            
-            /* Service Areas - Reducir padding y fuentes */
-            .service-areas {
-                padding: 35px 0 !important;
-            }
-            
-            .service-areas h3 {
-                font-size: 1.4rem !important;
-                margin-bottom: 1rem !important;
-            }
-            
-            .service-areas h4 {
-                font-size: 1rem !important;
-            }
-            
-            .service-areas p {
-                font-size: 0.85rem !important;
-            }
-            
-            .service-areas > div > div > div[style*="grid"] {
-                grid-template-columns: 1fr !important;
-                gap: 1rem !important;
-            }
-            
-            .service-areas > div > div > div[style*="grid"] > div {
-                padding: 1rem !important;
-            }
-            
-            /* Ajustar container padding */
-            .container {
-                padding: 0 1rem !important;
-            }
-            
-            /* Botones del formulario */
-            .contact-form button {
-                padding: 0.8rem !important;
-                font-size: 0.95rem !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .service-areas {
-                padding: 25px 0 !important;
-            }
-            
-            .service-areas h3 {
-                font-size: 1.2rem !important;
-            }
-            
-            .service-areas p {
-                font-size: 0.8rem !important;
-                line-height: 1.5 !important;
-            }
-            
-            .contact-form {
-                padding: 1.5rem !important;
-            }
-            
-            .contact-form label {
-                font-size: 0.85rem !important;
-            }
-            
-            .contact-form input,
-            .contact-form select {
-                padding: 0.6rem !important;
-                font-size: 0.85rem !important;
-            }
-        }
-    </style>
-
     <!-- Scripts -->
-    <script src="js/script.js" defer></script>
+    <script src="js/script.min.js?v=1" defer></script>
     
 </body>
 </html>
