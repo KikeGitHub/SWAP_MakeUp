@@ -9,16 +9,82 @@
   -->
   <url>
     <loc>https://marian-angeles.com/</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://marian-angeles.com/img/hero-bg.jpg</image:loc>
+      <image:loc>https://marian-angeles.com/img/about-photo.jpeg</image:loc>
       <image:caption>Hero — Marian Angeles Makeup Artist</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1200,v1768620729/about-photo_ncah4k.jpg</image:loc>
       <image:caption>About — Marian Angeles Makeup Artist</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/metepec/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillaje a domicilio en Metepec</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/valle-de-bravo/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillaje para bodas en Valle de Bravo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/morelos/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillaje profesional en Morelos</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/santa-fe/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillaje profesional en Santa Fe CDMX</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/cuernavaca/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillista a domicilio en Cuernavaca</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/tepoztlan/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_800/v1768620729/about-photo_ncah4k.jpg</image:loc>
+      <image:caption>Maquillaje para bodas en Tepoztlan</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://marian-angeles.com/maquillaje-por-zonas/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 </urlset>
