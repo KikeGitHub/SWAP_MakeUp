@@ -80,6 +80,39 @@
     --social-bg: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
     --hero-overlay-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
     --hero-text-color: #ffffff;
+    
+    /* === DARK MODE TEXT FIXES === */
+    /* Corregir texto gris oscuro inline para modo oscuro */
+}
+
+/* Dark mode overrides para colores inline */
+[data-theme="dark"] p[style*="color: #666"],
+[data-theme="dark"] p[style*="color: #555"],
+[data-theme="dark"] p[style*="color:#666"],
+[data-theme="dark"] p[style*="color:#555"],
+[data-theme="dark"] li[style*="color: #555"],
+[data-theme="dark"] li[style*="color: #666"],
+[data-theme="dark"] .service-description[style*="color: #666"],
+[data-theme="dark"] .service-description[style*="color: #555"],
+[data-theme="dark"] ul[style*="color: #555"] {
+    color: #d0d0d0 !important;
+}
+
+/* Corregir textos/badges con color negro en dark mode */
+[data-theme="dark"] [style*="color: #000"],
+[data-theme="dark"] .featured-badge[style*="color: #000"],
+[data-theme="dark"] [style*="color:#000"] {
+    color: var(--color-primario) !important;
+}
+
+/* Corregir footer icons en hover */
+[data-theme="dark"] .footer-social .social-link:hover i {
+    color: #1a1a1a !important;
+}
+
+/* Corregir fondo social links en dark mode */
+[data-theme="dark"] .footer-social .social-link {
+    background-color: #333333 !important;
 }
 
 /* ===================================
