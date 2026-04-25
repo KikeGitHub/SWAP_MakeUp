@@ -614,7 +614,7 @@ ul {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-nude-base) 100%);
-    background-image: url('../img/hero-bg.jpg');
+    background-image: url('../img/about-photo.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
