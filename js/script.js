@@ -660,9 +660,49 @@
     }
 
     // ===================================
+    // DARK MODE THEME TOGGLE
+    // ===================================
+    function initThemeToggle() {
+        const themeBtn = document.getElementById('themeToggleBtn');
+        if (!themeBtn) return;
+        
+        const icon = themeBtn.querySelector('i');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+
+        themeBtn.addEventListener('click', function() {
+            let theme = document.documentElement.getAttribute('data-theme');
+            let targetTheme = 'light';
+            
+            if (theme !== 'dark') {
+                targetTheme = 'dark';
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                targetTheme = 'light';
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+        });
+    }
+
+    // ===================================
     // INITIALIZE ALL FUNCTIONS
     // ===================================
     function init() {
+        // Initialize theme toggle
+        initThemeToggle();
+        
         // Add animation styles
         addAnimationStyles();
         

@@ -8,17 +8,30 @@
    CSS VARIABLES
    =================================== */
 :root {
-    /* Colors - Elegant Palette */
-    --color-primary: #1a1a1a;
-    --color-secondary: #d4af85;
-    --color-accent: #c9a66b;
-    --color-beige: #f5f0e8;
-    --color-nude: #e8dccf;
-    --color-gold: #b8935a;
-    --color-white: #ffffff;
-    --color-black: #0a0a0a;
-    --color-gray: #666666;
-    --color-light-gray: #f8f8f8;
+    /* Nuevas variables (Luz y Sofisticación) */
+    --color-primario: #000000;      /* Negro para autoridad */
+    --color-fondo: #FFFFFF;         /* Blanco para claridad */
+    --color-acento-cobre: #A67C52;  /* Elegancia de maquillaje */
+    --color-nude-base: #F5EBE0;     /* Suavidad y piel */
+    --color-texto-suave: #333333;   /* Legibilidad */
+    --color-oro: #D4AF37;           /* Lujo y luz */
+
+    /* Colors - Mapped to New Palette (Light Mode defaults) */
+    --color-primary: var(--color-primario);
+    --color-secondary: var(--color-acento-cobre);
+    --color-accent: var(--color-acento-cobre);
+    --color-beige: var(--color-nude-base);
+    --color-nude: var(--color-nude-base);
+    --color-gold: var(--color-oro);
+    --color-white: var(--color-fondo);
+    --color-black: var(--color-primario);
+    --color-gray: var(--color-texto-suave);
+    --color-light-gray: var(--color-fondo);
+    
+    /* Layout Variables */
+    --social-bg: var(--color-nude-base);
+    --hero-overlay-bg: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(245,235,224,0.7) 100%);
+    --hero-text-color: var(--color-primario);
     
     /* Typography */
     --font-primary: 'Poppins', sans-serif;
@@ -48,6 +61,28 @@
 }
 
 /* ===================================
+   DARK MODE
+   =================================== */
+[data-theme="dark"] {
+    /* Colors - Old Elegant Palette (Modo Obscuro) */
+    --color-primary: #ffffff;
+    --color-secondary: #d4af85;
+    --color-accent: #c9a66b;
+    --color-beige: #2a2a2a;
+    --color-nude: #e8dccf;
+    --color-gold: #b8935a;
+    --color-white: #1a1a1a;
+    --color-black: #ffffff;
+    --color-gray: #b3b3b3;    /* Texto de cuerpo en modo oscuro */
+    --color-light-gray: #222222;
+    
+    /* Layout Variables (Dark Mode) */
+    --social-bg: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+    --hero-overlay-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
+    --hero-text-color: #ffffff;
+}
+
+/* ===================================
    GLOBAL RESET & BASE STYLES
    =================================== */
 * {
@@ -69,7 +104,7 @@ section {
 
 body {
     font-family: var(--font-primary);
-    color: var(--color-primary);
+    color: var(--color-gray);
     background-color: var(--color-white);
     line-height: 1.7;
     overflow-x: hidden;
@@ -169,13 +204,13 @@ ul {
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--color-white);
-    border: 2px solid var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-white);
-    color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 .btn-outline {
@@ -282,7 +317,7 @@ ul {
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: var(--color-white);
     box-shadow: var(--shadow-sm);
     padding: 1rem 0;
 }
@@ -297,7 +332,7 @@ ul {
     font-family: var(--font-secondary);
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--color-white);
+    color: var(--color-primary);
     letter-spacing: 1px;
 }
 
@@ -322,7 +357,7 @@ ul {
 }
 
 .nav-link {
-    color: var(--color-white);
+    color: var(--color-primary);
     font-weight: 500;
     font-size: 0.95rem;
     position: relative;
@@ -361,7 +396,7 @@ ul {
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background-color: var(--color-white);
+    background-color: var(--color-primary);
     border-radius: 3px;
     transition: var(--transition-fast);
 }
@@ -371,10 +406,39 @@ ul {
 }
 
 /* ===================================
+   THEME TOGGLE BUTTON
+   =================================== */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.navbar.scrolled .theme-toggle-btn {
+    color: var(--color-primary);
+}
+.theme-toggle-btn:hover {
+    color: var(--color-gold);
+}
+.nav-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ===================================
    SOCIAL LINKS TOP BAR
    =================================== */
 .social-links-top {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+    background: var(--social-bg);
     padding: 1rem 0;
     border-bottom: 1px solid rgba(184, 147, 90, 0.2);
     backdrop-filter: blur(10px);
@@ -419,13 +483,14 @@ ul {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(184, 147, 90, 0.3);
+    background: var(--color-primary);
+    border: none;
     border-radius: 50%;
     color: var(--color-white);
     font-size: 1.1rem;
     transition: all 0.3s ease;
     text-decoration: none;
+    box-shadow: var(--shadow-sm);
 }
 
 .social-links-top .social-link:hover {
@@ -526,7 +591,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-nude-base) 100%);
     background-image: url('../img/hero-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -541,7 +606,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+    background: var(--hero-overlay-bg);
     z-index: 1;
 }
 
@@ -549,7 +614,7 @@ ul {
     position: relative;
     z-index: 2;
     text-align: center;
-    color: var(--color-white);
+    color: var(--hero-text-color);
     animation: fadeInUp 1s ease;
 }
 
@@ -581,6 +646,7 @@ ul {
     margin: 2rem auto;
     max-width: 600px;
     opacity: 0.9;
+    color: var(--hero-text-color);
 }
 
 .hero-buttons {
