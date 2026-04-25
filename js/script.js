@@ -697,11 +697,32 @@
     }
 
     // ===================================
+    // PROMO BAR
+    // ===================================
+    function initPromoBar() {
+        const promoBar = document.getElementById('promoBar');
+        const closeBtn = document.getElementById('closePromoBtn');
+        
+        if (promoBar && closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                promoBar.style.opacity = '0';
+                setTimeout(() => {
+                    promoBar.style.display = 'none';
+                }, 300);
+            });
+        }
+    }
+
+    // ===================================
     // INITIALIZE ALL FUNCTIONS
     // ===================================
     function init() {
         // Initialize theme toggle
         initThemeToggle();
+        
+        // Initialize promo bar
+        initPromoBar();
         
         // Add animation styles
         addAnimationStyles();
