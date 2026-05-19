@@ -270,7 +270,7 @@ ul {
     top: 165px; /* Un poco más de espacio respecto a social links */
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, #C2185B 0%, #880E4F 100%);
     color: var(--color-white);
     z-index: 998; /* Un poco menor que navbar para que no lo cubra si colisionan */
     padding: 0.8rem 0; /* Mayor padding para más presencia */
