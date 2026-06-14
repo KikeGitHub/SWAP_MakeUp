@@ -551,6 +551,7 @@
             font-weight: 700;
             opacity: 0.95;
         }
+        .promo-bar--hot-sale .promo-categories--mobile { display:none; }
 
         .promo-bar--hot-sale .promo-btn {
             background: #fff;
@@ -589,6 +590,11 @@
             .promo-bar--hot-sale .promo-media .promo-img { height:40px; }
             .promo-bar--hot-sale .promo-main { flex-direction:column; align-items:flex-start; gap:0.45rem; }
             .promo-bar--hot-sale .promo-btn { align-self:flex-end; }
+
+            /* mobile: hide long category text, show short label, keep single-line layout */
+            .promo-bar--hot-sale .promo-categories { display:none !important; }
+            .promo-bar--hot-sale .promo-categories--mobile { display:inline-block; font-size:0.82rem; font-weight:700; opacity:0.95; }
+            .promo-bar--hot-sale .promo-text { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
         }
 
         @media (max-width:360px) {
@@ -877,6 +883,8 @@
                     <span class="promo-kicker">PROMOCIÓN MUNDIALISTA</span>
                     <span class="promo-offer">25% DE DESCUENTO</span>
                     <span class="promo-categories">Durante el Mundial 2026</span>
+                    <!-- short mobile-only label -->
+                    <span class="promo-categories--mobile" aria-hidden="true">¡Oferta Mundial!</span>
                 </p>
                 <a href="https://wa.me/525661430855?text=Hola%20Marian%2C%20me%20interesa%20la%20promoci%C3%B3n%20mundialista%20del%2025%25.%20%C2%BFCu%C3%A1l%20es%20tu%20disponibilidad%3F" class="promo-btn track-gtag" data-gtag-event="generate_lead" data-gtag-method="whatsapp" data-gtag-label="promo_bar_reservar" target="_blank" rel="noopener">
                     Ver promoción <i class="fab fa-whatsapp"></i>
