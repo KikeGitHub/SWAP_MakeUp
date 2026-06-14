@@ -585,9 +585,14 @@
             }
 
             /* hide media on small screens and stack content */
-            .promo-bar--hot-sale .promo-media { display:none; }
+            .promo-bar--hot-sale .promo-media { display:flex; }
+            .promo-bar--hot-sale .promo-media .promo-img { height:40px; }
             .promo-bar--hot-sale .promo-main { flex-direction:column; align-items:flex-start; gap:0.45rem; }
             .promo-bar--hot-sale .promo-btn { align-self:flex-end; }
+        }
+
+        @media (max-width:360px) {
+            .promo-bar--hot-sale .promo-media { display:none; }
         }
     </style>
     
@@ -644,7 +649,7 @@
             .wc-balloons-container{display:none}
         }
 
-        @media (max-width:520px){ .wc-balloons-container{display:none} }
+        @media (max-width:360px){ .wc-balloons-container{display:none} }
     </style>
 
     <script>
@@ -660,9 +665,10 @@
             document.body.appendChild(container);
 
             var balls = [];
-            var maxBalls = 10;
             var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
             var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            var maxBalls = (vw < 520) ? 5 : 10;
+            var spawnDelay = (vw < 520) ? 1000 : 700;
 
             function rand(min,max){return Math.random()*(max-min)+min}
 
@@ -692,7 +698,7 @@
                 if(balls.length >= maxBalls) return;
                 var el = document.createElement('div');
                 el.className = 'wc-balloon';
-                var size = Math.round(rand(48,110));
+                var size = Math.round(rand(vw < 520 ? 36 : 48, vw < 520 ? 64 : 110));
                 el.style.width = size + 'px';
                 el.style.height = size + 'px';
 
@@ -773,15 +779,23 @@
                 requestAnimationFrame(step);
             }
 
-            // spawn loop
-            var spawnInterval = setInterval(function(){ spawnBall(); }, 700);
+            // spawn loop (adjustable for mobile)
+            var spawnInterval = setInterval(function(){ spawnBall(); }, spawnDelay);
             // ensure some initial balls
             for(var k=0;k<4;k++) spawnBall();
 
             requestAnimationFrame(function(t){ lastTime = t; requestAnimationFrame(step); });
 
             // cleanup on page hide
-            window.addEventListener('resize', function(){ vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0); vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0); });
+            window.addEventListener('resize', function(){ 
+                vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0); 
+                vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0); 
+                // adjust spawn and density when viewport changes
+                var newMax = (vw < 520) ? 5 : 10;
+                if(newMax !== maxBalls){ maxBalls = newMax; }
+                var newDelay = (vw < 520) ? 1000 : 700;
+                if(newDelay !== spawnDelay){ spawnDelay = newDelay; clearInterval(spawnInterval); spawnInterval = setInterval(spawnBall, spawnDelay); }
+            });
         });
     })();
     </script>
