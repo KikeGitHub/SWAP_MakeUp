@@ -600,6 +600,20 @@
         @media (max-width:360px) {
             .promo-bar--hot-sale .promo-media { display:none; }
         }
+
+        /* Mobile single-line layout: show only image + mobile offer text */
+        @media (max-width:480px) {
+            .promo-bar--hot-sale .promo-kicker { display:none !important; }
+            .promo-bar--hot-sale .promo-categories { display:none !important; }
+            .promo-bar--hot-sale .promo-categories--mobile { display:none !important; }
+            .promo-bar--hot-sale .promo-offer { display:none !important; }
+            .promo-bar--hot-sale .promo-offer--mobile { display:inline-block !important; font-weight:800; font-size:0.98rem; color:#fff; }
+            .promo-bar--hot-sale .promo-btn { display:none !important; }
+            .promo-bar--hot-sale .promo-main { flex-direction:row; align-items:center; gap:0.5rem; }
+            .promo-bar--hot-sale .promo-media .promo-img { height:28px; width:auto; }
+            .promo-bar--hot-sale .promo-text { white-space:nowrap; overflow:visible; }
+            .promo-bar--hot-sale .promo-container { justify-content:flex-start; gap:0.6rem; }
+        }
     </style>
     
     <!-- Favicon -->
@@ -882,8 +896,9 @@
                 <p class="promo-text">
                     <span class="promo-kicker">PROMOCIÓN MUNDIALISTA</span>
                     <span class="promo-offer">25% DE DESCUENTO</span>
+                    <span class="promo-offer--mobile" aria-hidden="true">25% PROMOCIÓN MUNDIALISTA</span>
                     <span class="promo-categories">Durante el Mundial 2026</span>
-                    <!-- short mobile-only label -->
+                    <!-- short mobile-only label (legacy) -->
                     <span class="promo-categories--mobile" aria-hidden="true">¡Oferta Mundial!</span>
                 </p>
                 <a href="https://wa.me/525661430855?text=Hola%20Marian%2C%20me%20interesa%20la%20promoci%C3%B3n%20mundialista%20del%2025%25.%20%C2%BFCu%C3%A1l%20es%20tu%20disponibilidad%3F" class="promo-btn track-gtag" data-gtag-event="generate_lead" data-gtag-method="whatsapp" data-gtag-label="promo_bar_reservar" target="_blank" rel="noopener">
