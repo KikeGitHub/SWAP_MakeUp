@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#1a1a1a">
     
     <!-- SEO Meta Tags -->
-    <title>✨ 25% OFF Novias | Marian Angeles | Maquillaje en CDMX</title>
+    <title>25% de Descuento Novias - Promoción Mundialista | Marian Angeles | Maquillaje en CDMX</title>
     <meta name="description" content="Solo en Mayo — 25% OFF en paquetes de Novia. Últimos lugares disponibles. Maquillista profesional a domicilio en CDMX. Agenda tu cita por WhatsApp.">
     <meta name="keywords" content="maquillaje profesional, makeup artist, maquillaje de novias cdmx, maquillaje social, maquillaje polanco, maquillaje santa fe, maquillaje interlomas, maquilladora profesional cdmx, makeup artist mexico, maquillaje eventos, maquillaje a domicilio cdmx, maquillaje roma norte, maquillaje condesa">
     <meta name="author" content="Marian Angeles">
@@ -506,7 +506,7 @@
 
         /* FIFA image in promo */
         .promo-bar--hot-sale .promo-media { display:flex; align-items:center; margin-right:0.75rem; flex:0 0 auto; }
-        .promo-bar--hot-sale .promo-media .promo-img { display:block; height:56px; width:auto; border-radius:8px; object-fit:contain; box-shadow:0 6px 18px rgba(2,40,80,0.12); }
+        .promo-bar--hot-sale .promo-media .promo-img { display:block; height:44px; width:auto; border-radius:8px; object-fit:contain; box-shadow:0 6px 18px rgba(2,40,80,0.12); }
 
         .promo-bar--hot-sale .promo-main { display:flex; align-items:center; gap:0.9rem; justify-content:space-between; flex:1 1 auto; }
 
@@ -552,6 +552,8 @@
             opacity: 0.95;
         }
         .promo-bar--hot-sale .promo-categories--mobile { display:none; }
+        /* mobile-only label should be hidden on desktop by default */
+        .promo-bar--hot-sale .promo-offer--mobile { display:none; }
 
         .promo-bar--hot-sale .promo-btn {
             background: #fff;
@@ -607,11 +609,16 @@
             .promo-bar--hot-sale .promo-categories { display:none !important; }
             .promo-bar--hot-sale .promo-categories--mobile { display:none !important; }
             .promo-bar--hot-sale .promo-offer { display:none !important; }
-            .promo-bar--hot-sale .promo-offer--mobile { display:inline-block !important; font-weight:800; font-size:0.98rem; color:#fff; }
+            /* mobile layout: image left, stacked text to the right (two lines) */
+            .promo-bar--hot-sale .promo-offer--mobile { display:block !important; color:#fff; }
             .promo-bar--hot-sale .promo-btn { display:none !important; }
             .promo-bar--hot-sale .promo-main { flex-direction:row; align-items:center; gap:0.5rem; }
-            .promo-bar--hot-sale .promo-media .promo-img { height:28px; width:auto; }
-            .promo-bar--hot-sale .promo-text { white-space:nowrap; overflow:visible; }
+            /* responsive image size */
+            .promo-bar--hot-sale .promo-media .promo-img { height:clamp(20px, 6.5vw, 28px); width:auto; }
+            /* allow wrapping inside the text block and stack lines vertically */
+            .promo-bar--hot-sale .promo-text { white-space:normal; display:flex; flex-direction:column; align-items:flex-start; gap:2px; margin:0; }
+            .promo-bar--hot-sale .promo-offer--mobile__line1 { display:block; font-weight:800; font-size:clamp(0.82rem, 4.8vw, 1rem); text-transform:uppercase; }
+            .promo-bar--hot-sale .promo-offer--mobile__line2 { display:block; font-weight:700; font-size:clamp(0.68rem, 3.8vw, 0.88rem); margin-top:0; align-self:center; }
             .promo-bar--hot-sale .promo-container { justify-content:flex-start; gap:0.6rem; }
         }
     </style>
@@ -885,7 +892,7 @@
     </div>
 
     <!-- Promo Bar -->
-    <div class="promo-bar promo-bar--hot-sale" id="promoBar" role="region" aria-label="Promoción Mundialista">
+    <div class="promo-bar promo-bar--hot-sale" id="promoBar" role="region" aria-label="25% OFF Novias - Promoción Mundialista">
         <button id="closePromoBtn" class="promo-close-btn" aria-label="Cerrar promoción">&times;</button>
         <div class="container promo-container">
             <div class="promo-media" aria-hidden="true">
@@ -894,12 +901,11 @@
 
             <div class="promo-main">
                 <p class="promo-text">
-                    <span class="promo-kicker">PROMOCIÓN MUNDIALISTA</span>
-                    <span class="promo-offer">25% DE DESCUENTO</span>
-                    <span class="promo-offer--mobile" aria-hidden="true">25% PROMOCIÓN MUNDIALISTA</span>
-                    <span class="promo-categories">Durante el Mundial 2026</span>
-                    <!-- short mobile-only label (legacy) -->
-                    <span class="promo-categories--mobile" aria-hidden="true">¡Oferta Mundial!</span>
+                    <span class="promo-offer">25% Off Novias - Promoción Mundialista</span>
+                    <span class="promo-offer--mobile" aria-hidden="true">
+                        <span class="promo-offer--mobile__line1">25% OFF Novias</span>
+                        <span class="promo-offer--mobile__line2">Promoción Mundialista</span>
+                    </span>
                 </p>
                 <a href="https://wa.me/525661430855?text=Hola%20Marian%2C%20me%20interesa%20la%20promoci%C3%B3n%20mundialista%20del%2025%25.%20%C2%BFCu%C3%A1l%20es%20tu%20disponibilidad%3F" class="promo-btn track-gtag" data-gtag-event="generate_lead" data-gtag-method="whatsapp" data-gtag-label="promo_bar_reservar" target="_blank" rel="noopener">
                     Ver promoción <i class="fab fa-whatsapp"></i>
