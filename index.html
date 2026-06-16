@@ -621,6 +621,19 @@
             .promo-bar--hot-sale .promo-offer--mobile__line2 { display:block; font-weight:700; font-size:clamp(0.68rem, 3.8vw, 0.88rem); margin-top:0; align-self:center; }
             .promo-bar--hot-sale .promo-container { justify-content:flex-start; gap:0.6rem; }
         }
+        /* Fix hero background bleed / white column on small screens */
+        @media (max-width:480px) {
+            html, body { overflow-x: hidden; }
+            .hero {
+                /* ensure full-bleed background even if parent has padding */
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+                background-position: center center;
+                min-height: 56vh;
+            }
+            .hero-overlay { inset: 0; }
+        }
     </style>
     
     <!-- Favicon -->
@@ -691,6 +704,28 @@
             container.className = 'wc-balloons-container';
             document.body.appendChild(container);
 
+            // Accessible trigger: small focusable control to activate/perturb balloons
+            var trigger = document.createElement('button');
+            trigger.className = 'wc-balloons-trigger';
+            trigger.setAttribute('aria-label', 'Activar globos');
+            // inline styles keep it non-intrusive; becomes visible on keyboard focus
+            trigger.style.position = 'fixed';
+            trigger.style.left = '8px';
+            trigger.style.bottom = '8px';
+            trigger.style.width = '44px';
+            trigger.style.height = '44px';
+            trigger.style.padding = '6px';
+            trigger.style.border = '0';
+            trigger.style.borderRadius = '8px';
+            trigger.style.background = 'transparent';
+            trigger.style.opacity = '0';
+            trigger.style.pointerEvents = 'auto';
+            trigger.style.transition = 'opacity 150ms ease';
+            trigger.style.zIndex = 10000;
+            trigger.addEventListener('focus', function(){ trigger.style.opacity = '1'; trigger.style.background = 'rgba(0,0,0,0.06)'; });
+            trigger.addEventListener('blur', function(){ trigger.style.opacity = '0'; trigger.style.background = 'transparent'; });
+            container.appendChild(trigger);
+
             var balls = [];
             var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
             var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -759,6 +794,18 @@
                 balls.push(ball);
             }
 
+            // excite existing balls and spawn a couple more (used by click/keyboard)
+            function exciteBalls(e){
+                // small visual feedback: spawn 1-2 extra balls
+                var extra = Math.round(rand(1,2));
+                for(var s=0;s<extra;s++) spawnBall();
+                // apply impulse to current balls
+                for(var i=0;i<balls.length;i++){
+                    balls[i].vx += rand(-4,4);
+                    balls[i].vy -= rand(4,9); // upward kick
+                }
+            }
+
             var lastTime = performance.now();
             function step(now){
                 var dt = Math.min(40, now - lastTime) / 16.666; // normalize to ~60fps
@@ -810,6 +857,16 @@
             var spawnInterval = setInterval(function(){ spawnBall(); }, spawnDelay);
             // ensure some initial balls
             for(var k=0;k<4;k++) spawnBall();
+
+            // wire up interactions: button click and keyboard (Enter/Space)
+            trigger.addEventListener('click', function(ev){ ev.stopPropagation(); exciteBalls(ev); });
+            trigger.addEventListener('keydown', function(ev){ if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); exciteBalls(ev); } });
+            // also allow a normal click anywhere on the page to nudge the balls (non-intrusive)
+            document.addEventListener('click', function(ev){
+                // ignore clicks on interactive elements to avoid interfering
+                var tag = (ev.target && ev.target.tagName) || '';
+                if(['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'].indexOf(tag) === -1){ exciteBalls(ev); }
+            }, { passive: true });
 
             requestAnimationFrame(function(t){ lastTime = t; requestAnimationFrame(step); });
 
