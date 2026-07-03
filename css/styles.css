@@ -917,6 +917,143 @@ ul {
 }
 
 /* ===================================
+   VIDEO SPOTLIGHT SECTION
+   =================================== */
+.video-spotlight {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+.video-spotlight-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.video-spotlight-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Smartphone Mockup */
+.smartphone-frame {
+    width: 320px;
+    height: 640px;
+    background-color: #1a1a1a;
+    border: 12px solid #2d2d2d;
+    border-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.smartphone-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Top Notch/Speaker area */
+.smartphone-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 25px;
+    background-color: #2d2d2d;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 10;
+}
+
+.smartphone-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #000;
+}
+
+.smartphone-screen iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-spotlight-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.video-spotlight-text {
+    font-size: 1.05rem;
+    color: var(--color-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.video-spotlight-cta {
+    margin-top: 1rem;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .smartphone-frame {
+    border-color: #3d3d3d;
+    background-color: #111;
+}
+
+[data-theme="dark"] .smartphone-frame::before {
+    background-color: #3d3d3d;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .video-spotlight-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: center;
+    }
+    
+    .video-spotlight-media {
+        order: 1; /* Video on bottom/middle for smaller screens */
+    }
+    
+    .video-spotlight-content {
+        order: 0;
+        align-items: center;
+    }
+    
+    .video-spotlight-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .smartphone-frame {
+        width: 280px;
+        height: 560px;
+        border-width: 8px;
+        border-radius: 30px;
+    }
+    
+    .smartphone-frame::before {
+        width: 100px;
+        height: 18px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+}
+
+/* ===================================
    SERVICES SECTION
    =================================== */
 .services {
