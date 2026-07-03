@@ -920,54 +920,62 @@ ul {
    VIDEO SPOTLIGHT SECTION
    =================================== */
 .video-spotlight {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--color-white);
+    padding: 80px 0;
+    background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08), transparent 45%),
+                linear-gradient(180deg, var(--color-white) 0%, var(--color-light-gray) 100%);
     overflow: hidden;
+    border-top: 1px solid rgba(166, 124, 82, 0.08);
 }
 
 .video-spotlight-wrapper {
     display: grid;
-    grid-template-columns: 1.1fr 1.2fr;
-    gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: center;
+    max-width: 1050px;
+    margin: 0 auto;
 }
 
 .video-spotlight-media {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-/* Smartphone Mockup */
+/* Smartphone Mockup Premium */
 .smartphone-frame {
-    width: 320px;
-    height: 640px;
-    background-color: #1a1a1a;
-    border: 12px solid #2d2d2d;
-    border-radius: 40px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    width: 280px;
+    height: 560px;
+    background-color: #0f0f11;
+    border: 11px solid #1f1f24;
+    border-radius: 38px;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(212, 175, 55, 0.2),
+                0 0 30px rgba(212, 175, 55, 0.05);
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+    z-index: 2;
 }
 
 .smartphone-frame:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 35px 70px -10px rgba(166, 124, 82, 0.25),
+                0 0 25px rgba(212, 175, 55, 0.25);
 }
 
-/* Top Notch/Speaker area */
-.smartphone-frame::before {
-    content: '';
+/* Speaker & Camera Notch */
+.smartphone-notch {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 25px;
-    background-color: #2d2d2d;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    width: 110px;
+    height: 18px;
+    background-color: #1f1f24;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     z-index: 10;
 }
 
@@ -987,10 +995,34 @@ ul {
     border: none;
 }
 
+/* Decorative glass glare on the screen */
+.smartphone-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+    z-index: 5;
+}
+
 .video-spotlight-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* Center items on desktop too! */
+    text-align: center;  /* Center text on desktop too! */
+}
+
+.video-spotlight-content .section-label {
+    margin-bottom: 0.75rem;
+}
+
+.video-spotlight-content .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .video-spotlight-text {
@@ -998,58 +1030,98 @@ ul {
     color: var(--color-gray);
     margin-bottom: 1.5rem;
     line-height: 1.8;
-    text-align: justify;
+    max-width: 580px; /* Restrict width for better readability */
 }
 
 .video-spotlight-cta {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center button horizontally */
+}
+
+/* Interactive CTA Button */
+.btn-video-cta {
+    padding: 1.1rem 2.8rem !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 30px !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-video-cta:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(212, 175, 55, 0.3);
+    background-color: var(--color-gold);
+    color: #000000 !important;
 }
 
 /* Dark mode overrides */
-[data-theme="dark"] .smartphone-frame {
-    border-color: #3d3d3d;
-    background-color: #111;
+[data-theme="dark"] .video-spotlight {
+    background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.12), transparent 45%),
+                linear-gradient(180deg, var(--color-white) 0%, #1c1815 100%);
+    border-top-color: rgba(212, 175, 55, 0.1);
 }
 
-[data-theme="dark"] .smartphone-frame::before {
-    background-color: #3d3d3d;
+[data-theme="dark"] .smartphone-frame {
+    border-color: #2a2a30;
+    background-color: #0d0d0f;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+[data-theme="dark"] .smartphone-notch {
+    background-color: #2a2a30;
 }
 
 /* Responsive styles */
 @media (max-width: 992px) {
+    .video-spotlight {
+        padding: 60px 0;
+    }
+    
     .video-spotlight-wrapper {
         grid-template-columns: 1fr;
         gap: 3.5rem;
-        text-align: center;
     }
     
     .video-spotlight-media {
-        order: 1; /* Video on bottom/middle for smaller screens */
+        order: 1; /* Video goes below text on tablet/mobile */
     }
     
     .video-spotlight-content {
         order: 0;
-        align-items: center;
     }
     
-    .video-spotlight-text {
-        text-align: center;
+    .video-spotlight-content .section-title {
+        font-size: 2.2rem;
     }
 }
 
 @media (max-width: 480px) {
     .smartphone-frame {
-        width: 280px;
-        height: 560px;
+        width: 240px;
+        height: 480px;
         border-width: 8px;
-        border-radius: 30px;
+        border-radius: 26px;
     }
     
-    .smartphone-frame::before {
-        width: 100px;
-        height: 18px;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
+    .smartphone-notch {
+        width: 90px;
+        height: 14px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+    .btn-video-cta {
+        width: 100%;
+        justify-content: center;
     }
 }
 
