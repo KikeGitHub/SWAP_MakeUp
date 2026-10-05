@@ -78,9 +78,14 @@
             method: method,
             content_type: 'cta',
             content_id: label,
+            link_label: label,
+            cta_location: label,
             page_location: location.pathname
         };
-        if (value !== null) gaParams.value = value;
+        if (value !== null) {
+            gaParams.value = value;
+            gaParams.currency = 'MXN';
+        }
 
         // Mapeo de eventos para Facebook Pixel
         const facebookEventMap = {
@@ -199,12 +204,13 @@
             sendTrackingEvent(eventName, method, label, value);
 
             // Para links externos (no _blank), permitir navegación después del evento
-            // Si es _blank, el evento se envía y se abre sin esperar
-            if (el.href && el.target !== '_blank') {
+            // Ignorar enlaces de ancla interna (#...) para preservar smooth scroll
+            const hrefAttr = el.getAttribute('href');
+            if (el.href && el.target !== '_blank' && hrefAttr && !hrefAttr.startsWith('#')) {
                 e.preventDefault();
                 setTimeout(function () {
                     window.location = el.href;
-                }, 100);
+                }, 120);
             }
         }, false);
     }
@@ -343,6 +349,23 @@
         // Set focus to modal for accessibility
         modal.setAttribute('tabindex', '-1');
         modal.focus();
+
+        // Track gallery interaction across GA4 and pixels
+        const itemTitle = (imageData && imageData.alt) ? imageData.alt.slice(0, 100) : ('Foto Portafolio ' + (currentImageIndex + 1));
+        sendGtagEvent('view_item', {
+            content_type: 'portfolio_gallery',
+            item_id: 'gallery_' + (currentImageIndex + 1),
+            item_name: itemTitle,
+            page_location: location.pathname
+        });
+        sendFacebookEvent('ViewContent', {
+            content_name: 'gallery_item_' + (currentImageIndex + 1),
+            content_type: 'gallery'
+        });
+        sendTikTokEvent('ViewContent', {
+            content_name: 'gallery_item_' + (currentImageIndex + 1),
+            content_type: 'gallery'
+        });
     }
 
     function closeModal() {
@@ -458,11 +481,40 @@
         // Show success message
         showNotification('Redirigiendo a WhatsApp...', 'success');
         
+        // Send conversion event to GA4
+        sendGtagEvent('generate_lead', {
+            method: 'whatsapp_form',
+            content_type: 'lead_form',
+            content_id: 'form_cotizacion_submit',
+            service_type: formData.service,
+            service_name: serviceName,
+            zone_name: zonaName,
+            people_count: formData.personas,
+            currency: 'MXN',
+            value: 100,
+            page_location: location.pathname
+        });
+
         // Send conversion event to Facebook Pixel
         sendFacebookEvent('Lead', {
             content_name: serviceName,
             content_type: 'service_booking',
             value: 100, // estimated value
+            currency: 'MXN'
+        });
+
+        // Send conversion event to TikTok Pixel
+        sendTikTokEvent('Contact', {
+            content_name: serviceName,
+            content_type: 'service_booking',
+            value: 100
+        });
+
+        // Send conversion event to Pinterest Pixel
+        sendPinterestEvent('checkout', {
+            content_name: serviceName,
+            content_type: 'service_booking',
+            value: 100,
             currency: 'MXN'
         });
         
@@ -628,13 +680,13 @@
     }
 
     // ===================================
-    // FAQ ACCORDION
+    // FAQ ACCORDION WITH GA4 TRACKING
     // ===================================
     function initFaqAccordion() {
         const faqItems = document.querySelectorAll('.faq-item');
         if (!faqItems.length) return;
 
-        faqItems.forEach(function(item) {
+        faqItems.forEach(function(item, idx) {
             const btn = item.querySelector('.faq-question');
             const answer = item.querySelector('.faq-answer');
             if (!btn || !answer) return;
@@ -645,8 +697,10 @@
                 // Close all items
                 faqItems.forEach(function(el) {
                     el.classList.remove('is-open');
-                    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                    el.querySelector('.faq-answer').hidden = true;
+                    const q = el.querySelector('.faq-question');
+                    const a = el.querySelector('.faq-answer');
+                    if (q) q.setAttribute('aria-expanded', 'false');
+                    if (a) a.hidden = true;
                 });
 
                 // Toggle clicked item
@@ -654,8 +708,95 @@
                     item.classList.add('is-open');
                     btn.setAttribute('aria-expanded', 'true');
                     answer.hidden = false;
+
+                    const questionText = (btn.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100);
+                    sendGtagEvent('select_content', {
+                        content_type: 'faq',
+                        content_id: 'faq_' + (idx + 1),
+                        item_name: questionText,
+                        page_location: location.pathname
+                    });
                 }
             });
+        });
+    }
+
+    // ===================================
+    // FORM START TRACKING (GA4)
+    // ===================================
+    function initFormStartTracking() {
+        if (!contactForm) return;
+        let formStarted = false;
+        contactForm.addEventListener('focusin', function() {
+            if (!formStarted) {
+                formStarted = true;
+                sendGtagEvent('form_start', {
+                    form_id: 'contactForm',
+                    form_name: 'formulario_cotizacion',
+                    page_location: location.pathname
+                });
+            }
+        });
+    }
+
+    // ===================================
+    // SCROLL DEPTH TRACKING (GA4: 25%, 50%, 75%, 90%)
+    // ===================================
+    function initScrollDepthTracking() {
+        const thresholds = [25, 50, 75, 90];
+        const triggered = {};
+
+        function checkScroll() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight <= 0) return;
+            const scrollPercent = Math.round((window.scrollY / docHeight) * 100);
+
+            thresholds.forEach(t => {
+                if (scrollPercent >= t && !triggered[t]) {
+                    triggered[t] = true;
+                    sendGtagEvent('scroll_depth', {
+                        percent_scrolled: t,
+                        page_location: location.pathname
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll, { passive: true });
+    }
+
+    // ===================================
+    // TIME ON PAGE MILESTONES (GA4: 30s, 60s, 120s)
+    // ===================================
+    function initTimeOnPageTracking() {
+        const milestones = [30, 60, 120];
+        milestones.forEach(seconds => {
+            setTimeout(() => {
+                if (!document.hidden) {
+                    sendGtagEvent('time_on_page', {
+                        seconds_spent: seconds,
+                        page_location: location.pathname
+                    });
+                }
+            }, seconds * 1000);
+        });
+    }
+
+    // ===================================
+    // DIRECT CONTACT CLICKS (Phone & Email)
+    // ===================================
+    function initContactClicksTracking() {
+        document.addEventListener('click', function(e) {
+            const telLink = e.target.closest && e.target.closest('a[href^="tel:"]');
+            if (telLink) {
+                sendTrackingEvent('generate_lead', 'phone_call', 'direct_phone_call', 50);
+                return;
+            }
+
+            const mailLink = e.target.closest && e.target.closest('a[href^="mailto:"]');
+            if (mailLink) {
+                sendTrackingEvent('generate_lead', 'email', 'direct_email_click', 50);
+            }
         });
     }
 
@@ -783,23 +924,15 @@
         // Set initial navbar state
         handleNavbarScroll();
         
-        // Initialize GA4 and Facebook Pixel event tracking system
+        // Initialize GA4 and multi-pixel event tracking systems
         initGtagTracking();
+        initFormStartTracking();
+        initScrollDepthTracking();
+        initTimeOnPageTracking();
+        initContactClicksTracking();
         
-        // Initialize FAQ accordion
+        // Initialize FAQ accordion (with GA4 event tracking)
         initFaqAccordion();
-        
-        // Track gallery opens for Facebook Pixel
-        if (galleryItems && galleryItems.length > 0) {
-            galleryItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    sendFacebookEvent('ViewContent', {
-                        content_name: 'gallery_item_' + (index + 1),
-                        content_type: 'gallery'
-                    });
-                });
-            });
-        }
     }
 
     // ===================================
