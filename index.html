@@ -237,9 +237,11 @@
         </script>
     
     <!-- Fonts -->
+    <script>try{if(sessionStorage.getItem('ma_intro_seen'))document.documentElement.classList.add('pro-intro-seen')}catch(e){}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -262,6 +264,9 @@
     <link rel="stylesheet" href="css/styles.min.css?v=2">
     <link rel="stylesheet" href="css/inline-styles.min.css?v=2">
     <link rel="stylesheet" href="css/index-extracted.min.css?v=2">
+    <!-- PRO Experience: capa visual premium (cortinas, revelados, hero nupcial) -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_720,h_960,c_fill,g_auto/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg" fetchpriority="high">
+    <link rel="stylesheet" href="css/pro-experience.css?v=1">
     <style>
         .service-areas {
             position: relative;
@@ -513,6 +518,12 @@
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
 <body>
+    <!-- PRO intro: cortina de apertura (decorativa) -->
+    <div class="pro-intro" aria-hidden="true">
+        <div class="pro-intro__panel pro-intro__panel--l"></div>
+        <div class="pro-intro__panel pro-intro__panel--r"></div>
+        <div class="pro-intro__mark"><div>Marian Angeles<small>Makeup Artist</small></div></div>
+    </div>
     
 
     <!-- Navigation -->
@@ -577,13 +588,16 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero hero--pro" id="home">
         <div class="hero-overlay"></div>
+        <div class="hero-bg-word" aria-hidden="true">Bridal</div>
+        <div class="hero-sparkles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="hero-content">
             <div class="hero-text">
+                <span class="hero-kicker"><i class="fas fa-gem" aria-hidden="true"></i> Especialista en Novias &amp; Eventos · Certificación EC0924</span>
                 <h1 class="hero-title">
                     <span class="subtitle">Makeup Artist Profesional en CDMX</span>
-                    <span class="main-title">Marian Angeles</span>
+                    <span class="main-title">Marian <em>Angeles</em></span>
                 </h1>
                 <p class="hero-description">Transformando tu belleza en arte con técnicas profesionales y productos de alta calidad</p>
                 <div class="hero-buttons">
@@ -594,18 +608,69 @@
                         Ver Portafolio
                     </a>
                 </div>
+                <ul class="hero-proof">
+                    <li><strong>10+</strong><span>Años de trayectoria</span></li>
+                    <li><strong>500+</strong><span>Clientas felices</span></li>
+                    <li><strong>HD</strong><span>Larga duración</span></li>
+                </ul>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-arch">
+                    <figure class="hero-arch__slide is-active">
+                        <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_720,h_960,c_fill,g_auto/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg"
+                             srcset="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_480,h_640,c_fill,g_auto/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg 480w,
+                                     https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_720,h_960,c_fill,g_auto/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg 720w"
+                             sizes="(max-width: 992px) 74vw, 460px"
+                             alt="Novia con maquillaje profesional de piel luminosa realizado por Marian Angeles en CDMX"
+                             width="720" height="960" fetchpriority="high" decoding="async">
+                    </figure>
+                    <figure class="hero-arch__slide">
+                        <img data-src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_720,h_960,c_fill,g_auto/v1767933468/maquillaje-peinado-novia-cdmx_ncuuxc.jpg"
+                             alt="Maquillaje y peinado de novia en CDMX por Marian Angeles" width="720" height="960" decoding="async">
+                    </figure>
+                    <figure class="hero-arch__slide">
+                        <img data-src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_720,h_960,c_fill,g_auto/v1767980710/peinado-novia-elegante.jpg_nsm6ww.jpg"
+                             alt="Peinado de novia elegante con maquillaje HD" width="720" height="960" decoding="async">
+                    </figure>
+                </div>
+                <div class="hero-float-card">
+                    <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_auto/v1767980710/maquillaje-novia-dia.jpg_ror7ud.jpg" alt="" width="58" height="58" loading="lazy">
+                    <div>
+                        <strong>Novias radiantes</strong>
+                        <span aria-label="Calificación 5 estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="hero-seal" aria-hidden="true">
+                    <svg viewBox="0 0 200 200">
+                        <defs><path id="heroSealCircle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+                        <text><textPath href="#heroSealCircle" textLength="480">Makeup Artist · Novias · CDMX ·</textPath></text>
+                    </svg>
+                    <span class="hero-seal__core">MA</span>
+                </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Desliza para descubrir">
+            <span></span><em>Descubre</em>
+        </a>
     </section>
+
+    <!-- PRO marquee: cortina que sube sobre el hero (decorativa) -->
+    <div class="pro-marquee" aria-hidden="true">
+        <div class="pro-marquee__track">
+            <div class="pro-marquee__group">
+                <span>Novias</span><i>✦</i><span>XV Años</span><i>✦</i><span>Graduaciones</span><i>✦</i><span>Editorial</span><i>✦</i><span>Maquillaje HD</span><i>✦</i><span>A domicilio CDMX</span><i>✦</i><span>Bodas de destino</span><i>✦</i>
+            </div>
+            <div class="pro-marquee__group">
+                <span>Novias</span><i>✦</i><span>XV Años</span><i>✦</i><span>Graduaciones</span><i>✦</i><span>Editorial</span><i>✦</i><span>Maquillaje HD</span><i>✦</i><span>A domicilio CDMX</span><i>✦</i><span>Bodas de destino</span><i>✦</i>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-wrapper">
-                <div class="about-image" data-aos="fade-right">
+                <div class="about-image" data-aos="fade-right" data-parallax="0.05">
                     <img
                         src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_1024/v1768620729/about-photo_ncah4k.jpg"
                         srcset="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_480/v1768620729/about-photo_ncah4k.jpg 480w,
@@ -674,6 +739,51 @@
                 <div style="margin-top: 2rem; text-align: center; width:100%;">
                     <a href="https://wa.me/525661430855?text=Hola%20quiero%20consultar%20disponibilidad" class="btn btn-primary track-gtag" data-gtag-event="generate_lead" data-gtag-method="whatsapp" data-gtag-label="about_consulta_disponibilidad" target="_blank" rel="noopener">Consulta disponibilidad</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridal Experience Section -->
+    <section class="bridal-experience" id="experiencia-novias">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Experiencia Exclusiva</span>
+                <h2 class="section-title">El Arte del Maquillaje Nupcial</h2>
+                <p class="section-description">Un proceso diseñado para que disfrutes cada instante de tu gran día con tranquilidad y un look radiante de alta definición.</p>
+            </div>
+
+            <ul class="bridal-steps">
+                <li class="bridal-step">
+                    <figure class="bridal-step__media" data-parallax="0.06">
+                        <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767933483/prueba-de-novia_ur38yi.jpg" alt="Prueba de diseño de imagen y maquillaje para novia" loading="lazy">
+                    </figure>
+                    <span class="bridal-step__num">01</span>
+                    <h3>Prueba de Imagen</h3>
+                    <p>Diseñamos juntas el look de tus sueños, probando texturas, peinado y armonía con tu vestido y accesorios con semanas de anticipación.</p>
+                </li>
+                <li class="bridal-step">
+                    <figure class="bridal-step__media" data-parallax="0.08">
+                        <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/maquillaje-novia-natural-glowskin.jpg_xlfnq6.jpg" alt="Preparación Skin Prep y acabado Glow Skin para novias" loading="lazy">
+                    </figure>
+                    <span class="bridal-step__num">02</span>
+                    <h3>Skin Prep &amp; HD</h3>
+                    <p>Ritual de hidratación profunda y fijación multicapa resistente a lágrimas, abrazos, humedad y flashes para que brilles hasta el final de la fiesta.</p>
+                </li>
+                <li class="bridal-step">
+                    <figure class="bridal-step__media" data-parallax="0.06">
+                        <img src="https://res.cloudinary.com/lealtix-media/image/upload/f_auto,q_auto,w_600/v1767980710/peinado-novia-elegante.jpg_nsm6ww.jpg" alt="Peinado de novia elegante y estilizado profesional" loading="lazy">
+                    </figure>
+                    <span class="bridal-step__num">03</span>
+                    <h3>Styling &amp; Acompañamiento</h3>
+                    <p>Peinado nupcial personalizado, colocación de velo, retoque final y kit de emergencia para que salgas al altar 100% segura y hermosa.</p>
+                </li>
+            </ul>
+
+            <div class="bridal-cta">
+                <p>¿Te casas en CDMX o tienes una boda de destino? Aseguremos tu fecha antes de que se agote la temporada.</p>
+                <a href="https://wa.me/525661430855?text=Hola%20Marian%2C%20me%20caso%20y%20quiero%20cotizar%20mi%20paquete%20de%20novia" class="btn btn-gold track-gtag" data-gtag-event="generate_lead" data-gtag-method="whatsapp" data-gtag-label="bridal_experience_cotiza" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> Cotizar Mi Boda
+                </a>
             </div>
         </div>
     </section>
@@ -1045,7 +1155,8 @@
                 <!-- Services Grid -->
                 <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; align-items: stretch;" id="servicesGrid">
                     
-                    <div class="service-card" style="background: #fff; padding: 1.4rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; height: 100%;">
+                    <div class="service-card service-card--bridal" style="background: #fff; padding: 1.4rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; height: 100%; position: relative;">
+                        <div class="service-ribbon">Boutique VIP</div>
                         <div class="service-icon" style="margin-bottom: 0.8rem;">
                             <i class="fas fa-heart" style="font-size: 2.2rem; color: var(--color-primary);"></i>
                         </div>
@@ -1613,6 +1724,7 @@
 
     <!-- Scripts -->
     <script src="js/script.min.js?v=1.1.0" defer></script>
+    <script src="js/pro-experience.js?v=1" defer></script>
     
 </body>
 </html>
