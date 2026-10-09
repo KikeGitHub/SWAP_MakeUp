@@ -75,7 +75,7 @@
     }
 
     // -----------------------------------------------------------------
-    // 3. Barra de progreso + progreso del hero + parallax (1 solo rAF)
+    // 3. Barra de progreso + progreso del hero + portal + parallax (1 solo rAF)
     // -----------------------------------------------------------------
     function initScrollFx() {
         var bar = document.createElement('div');
@@ -84,6 +84,7 @@
         document.body.appendChild(bar);
 
         var hero = document.querySelector('.hero--pro');
+        var portal = document.querySelector('.pro-curtain-portal');
         var parallax = reduceMotion ? [] : $all('[data-parallax]');
         var ticking = false;
 
@@ -98,6 +99,12 @@
                 var h = hero.offsetHeight || vh;
                 var p = Math.min(Math.max(y / h, 0), 1);
                 hero.style.setProperty('--hero-p', p.toFixed(3));
+            }
+
+            if (portal && !reduceMotion) {
+                var pr = portal.getBoundingClientRect();
+                var pp = Math.min(Math.max((vh - pr.top) / (vh + pr.height), 0), 1);
+                portal.style.setProperty('--portal-p', pp.toFixed(3));
             }
 
             for (var k = 0; k < parallax.length; k++) {
@@ -120,6 +127,128 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onScroll, { passive: true });
         update();
+    }
+
+    // -----------------------------------------------------------------
+    // 3.1. 3D Tilt interactivo + Sheen dinámico en el Hero Visual
+    // -----------------------------------------------------------------
+    function initHeroTilt() {
+        if (reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
+        var visual = document.querySelector('.hero-visual');
+        var arch = document.querySelector('.hero-arch');
+        if (!visual || !arch) return;
+
+        var ticking = false;
+        var mouseX = 0, mouseY = 0;
+
+        function updateTilt() {
+            ticking = false;
+            var rect = visual.getBoundingClientRect();
+            var cx = rect.left + rect.width / 2;
+            var cy = rect.top + rect.height / 2;
+            var dx = (mouseX - cx) / (rect.width / 2);
+            var dy = (mouseY - cy) / (rect.height / 2);
+            dx = Math.max(-1, Math.min(1, dx));
+            dy = Math.max(-1, Math.min(1, dy));
+
+            var tiltX = (-dy * 9).toFixed(2);
+            var tiltY = (dx * 12).toFixed(2);
+            var sheenX = ((dx * 0.5 + 0.5) * 100).toFixed(1) + '%';
+            var sheenY = ((dy * 0.5 + 0.5) * 100).toFixed(1) + '%';
+
+            arch.style.setProperty('--tilt-x', tiltX + 'deg');
+            arch.style.setProperty('--tilt-y', tiltY + 'deg');
+            arch.style.setProperty('--sheen-x', sheenX);
+            arch.style.setProperty('--sheen-y', sheenY);
+
+            // Micro-desplazamiento en pills
+            $all('.hero-pill', visual).forEach(function (pill, idx) {
+                var factor = (idx + 1) * 7;
+                pill.style.setProperty('--pill-tx', (dx * factor).toFixed(1) + 'px');
+                pill.style.setProperty('--pill-ty', (dy * factor).toFixed(1) + 'px');
+            });
+        }
+
+        window.addEventListener('pointermove', function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!ticking) {
+                ticking = true;
+                window.requestAnimationFrame(updateTilt);
+            }
+        }, { passive: true });
+
+        visual.addEventListener('pointerleave', function () {
+            arch.style.setProperty('--tilt-x', '0deg');
+            arch.style.setProperty('--tilt-y', '0deg');
+            $all('.hero-pill', visual).forEach(function (pill) {
+                pill.style.setProperty('--pill-tx', '0px');
+                pill.style.setProperty('--pill-ty', '0px');
+            });
+        });
+    }
+
+    // -----------------------------------------------------------------
+    // 3.2. Canvas de polvo dorado ambiental (Gold Dust)
+    // -----------------------------------------------------------------
+    function initGoldDustCanvas() {
+        if (reduceMotion) return;
+        var canvas = document.querySelector('.hero-dust-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        var width, height;
+        var particles = [];
+        var numParticles = window.innerWidth < 768 ? 20 : 38;
+
+        function resize() {
+            var rect = canvas.getBoundingClientRect();
+            width = canvas.width = rect.width * (window.devicePixelRatio || 1);
+            height = canvas.height = rect.height * (window.devicePixelRatio || 1);
+        }
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+
+        for (var i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * (width || 800),
+                y: Math.random() * (height || 800),
+                size: Math.random() * 2.2 + 0.8,
+                speedX: (Math.random() - 0.5) * 0.35,
+                speedY: -(Math.random() * 0.45 + 0.15),
+                alpha: Math.random() * 0.7 + 0.2,
+                pulse: Math.random() * Math.PI * 2,
+                pulseSpeed: Math.random() * 0.03 + 0.015
+            });
+        }
+
+        function render() {
+            if (document.hidden) {
+                requestAnimationFrame(render);
+                return;
+            }
+            ctx.clearRect(0, 0, width, height);
+
+            for (var j = 0; j < particles.length; j++) {
+                var p = particles[j];
+                p.x += p.speedX;
+                p.y += p.speedY;
+                p.pulse += p.pulseSpeed;
+
+                if (p.y < 0) p.y = height;
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+
+                var a = (Math.sin(p.pulse) * 0.3 + 0.5) * p.alpha;
+                ctx.fillStyle = 'rgba(212, 175, 55, ' + a.toFixed(3) + ')';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            requestAnimationFrame(render);
+        }
+        render();
     }
 
     // -----------------------------------------------------------------
@@ -475,6 +604,8 @@
     function init() {
         initIntro();
         initHeroSlides();
+        initHeroTilt();
+        initGoldDustCanvas();
         initGallery();
         splitTitles();
         initReveals();
